@@ -30,11 +30,12 @@
  * @brief     Declares VisionModule base class for DetectionModule class
  */
 
- #ifndef HODM_INCLUDE_VISIONMODULE_H_
- #define HODM_INCLUDE_VISIONMODULE_H_
+#ifndef INCLUDE_VISIONMODULE_HPP_
+#define INCLUDE_VISIONMODULE_HPP_
 
 #include <iostream>
 #include <vector>
+#include <utility>
 #include <opencv2/core/core.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -42,8 +43,18 @@
 /**
  * @brief Class for Vision based functionality
  */
-class VisonModule {
-  public :
+class VisionModule {
+ public :
+  /**
+   * @brief Constructor for class
+   */
+  VisionModule();
+
+  /** 
+   * @brief Destrcutor for class
+   */
+  virtual ~VisionModule();
+
   /**
    * @brief Applies Gaussian Filter to given image.
    *
@@ -56,7 +67,8 @@ class VisonModule {
    *
    * @return Reference to image after applying filter
    */
-  virtual cv::Mat& applyGaussianFilter(cv::Mat image, int kernelDim, float sigma);
+  virtual cv::Mat applyGaussianFilter(cv::Mat image,
+      int kernelDim, float sigma);
 
   /**
    * @brief Applies Mean Filter to given image.
@@ -66,7 +78,7 @@ class VisonModule {
    *
    * @return Reference to image after applying filter
    */
-  virtual cv::Mat& applyMeanFilter(cv::Mat image, int kernelDim);
+  virtual cv::Mat applyMeanFilter(cv::Mat image, int kernelDim);
 
   /**
    * @brief Applies Median Filter to given image.
@@ -76,7 +88,7 @@ class VisonModule {
    *
    * @return Reference to image after applying filter
    */
-  virtual cv::Mat& applyMedianFilter(cv::Mat image, int kernelDim);
+  virtual cv::Mat applyMedianFilter(cv::Mat image, int kernelDim);
 
   /**
    * @brief Reshapes given image to given dimension
@@ -87,7 +99,7 @@ class VisonModule {
    *
    * @return Reference to image after reshaping it
    */
-  virtual cv::Mat& reshape(cv::Mat image, std::pair<int, int> dim);
+  virtual cv::Mat reshape(cv::Mat image, std::pair<int, int> dim);
 
   /**
    * @brief Applies Non Maximal Suppression Algorithm
@@ -109,4 +121,4 @@ class VisonModule {
       cv::Mat image, std::vector<std::vector<float>>);
 }
 
-#endif    // HODM_INCLUDE_VISIONMODULE_H_
+#endif    // INCLUDE_VISIONMODULE_HPP_
