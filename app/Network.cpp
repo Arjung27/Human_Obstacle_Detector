@@ -23,18 +23,13 @@
  *******************************************************************************/
 
 /**
- * @file      main.cpp
+ * @file      Network.cpp
  * @author    Rohan Singh
  * @author    Arjun Gupta
  * @copyright MIT License (c) 2019 Rohan Singh, Arjun Gupta
- * @brief     Main application cpp file
+ * @brief     Definition for Network class
  */
 
 #include <iostream>
-#include <lib.hpp>
 
-int main()
-{
-    dummy();
-    return 0;
-}
+#include "Network.hpp"

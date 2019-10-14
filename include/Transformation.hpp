@@ -23,18 +23,14 @@
  *******************************************************************************/
 
 /**
- * @file      main.cpp
+ * @file      Transformation.hpp
  * @author    Rohan Singh
  * @author    Arjun Gupta
  * @copyright MIT License (c) 2019 Rohan Singh, Arjun Gupta
- * @brief     Main application cpp file
+ * @brief     Declares Transformation class
  */
 
-#include <iostream>
-#include <lib.hpp>
+#ifndef INCLUDE_TRANSFORMATION_HPP_
+#define INCLUDE_TRANSFORMATION_HPP_
 
-int main()
-{
-    dummy();
-    return 0;
-}
+#endif    // INCLUDE_TRANSFORMATION_HPP_
