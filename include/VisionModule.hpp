@@ -65,7 +65,7 @@ class VisionModule {
    * @param kernelDim Size of kernel matrix
    * @param sigma Standard deviation for the Gaussian kernel
    *
-   * @return Reference to image after applying filter
+   * @return Image after applying filter
    */
   virtual cv::Mat applyGaussianFilter(cv::Mat image,
       int kernelDim, float sigma);
@@ -76,7 +76,7 @@ class VisionModule {
    * @param image Image on which the filter will be applied
    * @param kernelDim Size of kernel matrix
    *
-   * @return Reference to image after applying filter
+   * @return Image after applying filter
    */
   virtual cv::Mat applyMeanFilter(cv::Mat image, int kernelDim);
 
@@ -86,7 +86,7 @@ class VisionModule {
    * @param image Image on which the filter will be applied
    * @param kernelDim Size of kernel matrix
    *
-   * @return Reference to image after applying filter
+   * @return Image after applying filter
    */
   virtual cv::Mat applyMedianFilter(cv::Mat image, int kernelDim);
 
@@ -97,7 +97,7 @@ class VisionModule {
    * @param shape Pair of ints giving the Dimension the image
    *              has to be rehsaped to 
    *
-   * @return Reference to image after reshaping it
+   * @return Image after reshaping it
    */
   virtual cv::Mat reshape(cv::Mat image, std::pair<int, int> dim);
 
