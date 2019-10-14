@@ -23,18 +23,14 @@
  *******************************************************************************/
 
 /**
- * @file      main.cpp
+ * @file      IOHandler.hpp
  * @author    Rohan Singh
  * @author    Arjun Gupta
  * @copyright MIT License (c) 2019 Rohan Singh, Arjun Gupta
- * @brief     Main application cpp file
+ * @brief     Declares IOHandler class
  */
 
-#include <iostream>
-#include <lib.hpp>
+#ifndef INCLUDE_IOHANDLER_HPP_
+#define INCLUDE_IOHANDLER_HPP_
 
-int main()
-{
-    dummy();
-    return 0;
-}
+#endif    // INCLUDE_IOHANDLER_HPP_
