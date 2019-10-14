@@ -1,6 +1,7 @@
 # C++ Boilerplate
 [![Build Status](https://travis-ci.org/rohansingh42/HODM.svg?branch=master)](https://travis-ci.org/rohansingh42/HODM)
 [![Coverage Status](https://coveralls.io/repos/github/rohansingh42/HODM/badge.svg?branch=master)](https://coveralls.io/github/rohansingh42/HODM?branch=master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ---
 
 ## Overview
