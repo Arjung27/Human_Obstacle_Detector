@@ -14,7 +14,7 @@ add_executable(
     ../app/Camera.cpp
     ../app/Network.cpp
     ../app/Transformation.cpp
-    ../app/IOHandler.cpp)
+    ../app/IOHandler.cpp
 )
 
 target_include_directories(cpp-test PUBLIC ../vendor/googletest/googletest/include 

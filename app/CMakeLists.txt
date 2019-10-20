@@ -10,5 +10,5 @@ include_directories(
     ${OpenCV_INCLUDE_DIRS}
 )
 
-target_link_libraries( hodm-app ${OpenCV_LIBS} )
+target_link_libraries( hodm-app ${OpenCV_LIBS}
 )

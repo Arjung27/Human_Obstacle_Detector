@@ -119,6 +119,5 @@ class VisionModule {
    */
   virtual std::vector<std::vector<float>> nonMaximalSuppression(
       cv::Mat image, std::vector<std::vector<float>>);
-}
-
+};
 #endif    // INCLUDE_VISIONMODULE_HPP_

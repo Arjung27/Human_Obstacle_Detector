@@ -33,4 +33,7 @@
 #ifndef INCLUDE_IOHANDLER_HPP_
 #define INCLUDE_IOHANDLER_HPP_
 
+class IOHandler{
+
+};
 #endif    // INCLUDE_IOHANDLER_HPP_

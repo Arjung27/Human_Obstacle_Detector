@@ -33,4 +33,8 @@
 #ifndef INCLUDE_NETWORK_HPP_
 #define INCLUDE_NETWORK_HPP_
 
+class Network {
+
+};
+
 #endif    // INCLUDE_NETWORK_HPP_

@@ -110,6 +110,6 @@ class Camera {
   int cameraID;
   cv::Mat calibrationMatrix;
   std::pair<int,int> resolution;
-}
+};
 
 #endif    // INCLUDE_CAMERA_HPP_

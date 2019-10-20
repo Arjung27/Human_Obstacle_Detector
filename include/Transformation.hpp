@@ -33,4 +33,7 @@
 #ifndef INCLUDE_TRANSFORMATION_HPP_
 #define INCLUDE_TRANSFORMATION_HPP_
 
+class Transformation {
+
+};
 #endif    // INCLUDE_TRANSFORMATION_HPP_

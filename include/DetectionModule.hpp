@@ -38,9 +38,10 @@
 #include <utility>
 
 #include "VisionModule.hpp"
-#include "Interface.hpp"
+#include "Network.hpp"
 #include "Camera.hpp"
 #include "IOHandler.hpp"
+#include "Transformation.hpp"
 
 /**
  * @brief Class for Implementing Human Obstacle Detection Algorithms
@@ -123,6 +124,6 @@ class DetectionModule : public VisionModule {
 
   /* Choice of input - Image, Video or Live Cam Feed */
   int inputChoice;
-}
+};
 
 #endif    // INCLUDE_DETECTIONMODULE_HPP_
