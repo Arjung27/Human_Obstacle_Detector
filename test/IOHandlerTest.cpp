@@ -31,3 +31,61 @@
  */
 
 #include <gtest/gtest.h>
+#include <sstream>
+
+#include "../include/IOHandler.hpp"
+
+TEST(IOHandler, TestGetInputChoice) {
+
+  std::istringstream mockInputBuffer1("1");
+  std::ostringstream mockOutputBuffer;
+  IOHandler io1(mockInputBuffer1, mockOutputBuffer);
+
+  std::istringstream mockInputBuffer2("2");
+  IOHandler io2(mockInputBuffer2, mockOutputBuffer);
+
+  std::istringstream mockInputBuffer3("3");
+  IOHandler io3(mockInputBuffer3, mockOutputBuffer);
+
+  std::istringstream mockInputBuffer4("4 1");
+  IOHandler io4(mockInputBuffer4, mockOutputBuffer);
+
+  ASSERT_EQ(1, io1.getInputChoice());
+  ASSERT_EQ(2, io2.getInputChoice());
+  ASSERT_EQ(3, io3.getInputChoice());
+  ASSERT_EQ(1, io4.getInputChoice());
+}
+
+TEST(IOHandler, TestGetInputFilePath) {
+
+  std::string testString1 = "/home/arjun/Courseworks/Projects/ENPM808X/HODM/test/testData/testImage.jpg";
+  std::string testString2 = "../test/testData/notTestImage.jpg";
+  testString2 = testString2 + " " + testString1;
+  std::istringstream mockInputBuffer1(testString1);
+  std::ostringstream mockOutputBuffer;
+  IOHandler io1(mockInputBuffer1, mockOutputBuffer);
+
+  std::istringstream mockInputBuffer2(testString1);
+  IOHandler io2(mockInputBuffer2, mockOutputBuffer);
+
+  ASSERT_EQ(testString1, io1.getInputFilePath());
+  ASSERT_EQ(testString1, io2.getInputFilePath());
+}
+
+TEST(IOHandler, TestGetDeviceID) {
+
+  std::istringstream mockInputBuffer("1");
+  std::ostringstream mockOutputBuffer;
+  IOHandler io(mockInputBuffer, mockOutputBuffer);
+
+  ASSERT_EQ(1, io.getDeviceID());
+}
+
+TEST(IOHandler, TestGetOutputFilePath) {
+
+  std::istringstream mockInputBuffer("output/");
+  std::ostringstream mockOutputBuffer;
+  IOHandler io(mockInputBuffer, mockOutputBuffer);
+
+  ASSERT_EQ("output/", io.getOutputFilePath());
+}
