@@ -28,6 +28,7 @@ matrix:
             - libavformat-dev
             - libswscale-dev
             - python-dev
+            - python3-pip
             - python-numpy
             - libtbb2
             - libtbb-dev
