@@ -36,7 +36,6 @@
 #include "../include/IOHandler.hpp"
 
 TEST(IOHandler, TestGetInputChoice) {
-
   std::istringstream mockInputBuffer1("1");
   std::ostringstream mockOutputBuffer;
   IOHandler io1(mockInputBuffer1, mockOutputBuffer);
@@ -57,7 +56,6 @@ TEST(IOHandler, TestGetInputChoice) {
 }
 
 TEST(IOHandler, TestGetInputFilePath) {
-
   std::string testString1 = "../test/testData/testImage.jpg";
   std::string testString2 = "../test/testData/notTestImage.jpg";
   testString2 = testString2 + " " + testString1;
@@ -73,7 +71,6 @@ TEST(IOHandler, TestGetInputFilePath) {
 }
 
 TEST(IOHandler, TestGetDeviceID) {
-
   std::istringstream mockInputBuffer("1");
   std::ostringstream mockOutputBuffer;
   IOHandler io(mockInputBuffer, mockOutputBuffer);
@@ -82,7 +79,6 @@ TEST(IOHandler, TestGetDeviceID) {
 }
 
 TEST(IOHandler, TestGetOutputFilePath) {
-
   std::istringstream mockInputBuffer("output/");
   std::ostringstream mockOutputBuffer;
   IOHandler io(mockInputBuffer, mockOutputBuffer);
