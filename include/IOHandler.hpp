@@ -33,7 +33,32 @@
 #ifndef INCLUDE_IOHANDLER_HPP_
 #define INCLUDE_IOHANDLER_HPP_
 
-class IOHandler{
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <opencv2/core/core.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
+class IOHandler {
+ private:
+    int inputChoice;
+    std::string filePath;
+    int cameraID;
+    std::string outputDirectory;
+    cv::Mat image;
+    cv::VideoCapture video;
+    std::istream& inputStream;
+    std::ostream& outputStream;
 
+ public:
+    IOHandler();
+    IOHandler(std::istream& input, std::ostream& output);
+    ~IOHandler();
+    int getInputChoice();
+    std::string getInputFilePath();
+    int getDeviceID();
+    std::string getOutputFilePath();
+    void saveOutput(std::vector< std::vector<int> > finalDetections, \
+    std::string outputDirectory);
 };
 #endif    // INCLUDE_IOHANDLER_HPP_
