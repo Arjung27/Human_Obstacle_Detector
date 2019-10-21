@@ -43,6 +43,7 @@ VisionModule::~VisionModule() {
 auto VisionModule::applyGaussianFilter(cv::Mat image, cv::Size kernelDim, \
                                                 float sigma) -> cv::Mat {
     cv::Mat smoothenImage;
+    /* Gaussian filter to remove noise */
     cv::GaussianBlur(image, smoothenImage, cv::Size(kernelDim), sigma, sigma);
     return smoothenImage;
 }
@@ -50,6 +51,7 @@ auto VisionModule::applyGaussianFilter(cv::Mat image, cv::Size kernelDim, \
 auto VisionModule::applyFilter(cv::Mat image, \
                                 cv::Size kernelDim) -> cv::Mat {
     cv::Mat smoothenImage;
+    /* Standard/Mean filter to remove noise */
     cv::blur(image, smoothenImage, cv::Size(kernelDim), cv::Point(-1, -1));
     return smoothenImage;
 }
@@ -57,6 +59,7 @@ auto VisionModule::applyFilter(cv::Mat image, \
 auto VisionModule::applyMedianFilter(cv::Mat image, \
                     int kernelDim) -> cv::Mat {
     cv::Mat smoothenImage;
+    /* Median filter to remove noise */
     cv::medianBlur(image, smoothenImage, kernelDim);
     return smoothenImage;
 }
@@ -64,6 +67,7 @@ auto VisionModule::applyMedianFilter(cv::Mat image, \
 auto VisionModule::reshape(cv::Mat image, \
                                 cv::Size size) -> cv::Mat {
     cv::Mat resizedImage;
+    /* Reshapes images to the desired size without cropping */
     cv::resize(image, resizedImage, size, 0.0, 0.0);
     return resizedImage;
 }
@@ -74,15 +78,20 @@ std::vector< std::vector<int> > VisionModule::nonMaximalSuppression(\
         int frameID) {
     std::vector< std::vector<int> > finalDetections;
     std::vector<int> indexes;
+    /* Non Maximal Suppression Algorithm that removes the bounding boxes
+    with significant overlap */
     cv::dnn::NMSBoxes(predictedBoxes, confidenceScores, \
     this->confidenceThreshold, this->nmsThreshold, indexes);
     for (auto index : indexes) {
         if (classIds[index] == 0) {
             cv::Rect rectangle_ = predictedBoxes[index];
+            /* Calculating bottom right corner coordinates using the width,
+            height and top left corner's information */
             int bottomRightX = rectangle_.x + rectangle_.width;
             if (bottomRightX > 416) bottomRightX = 416;
             int bottomRightY = rectangle_.y + rectangle_.height;
             if (bottomRightY > 416) bottomRightY = 416;
+            /* Drawing rectangles on the image */
             cv::rectangle(frame, cv::Point(rectangle_.x, rectangle_.y), \
             cv::Point(bottomRightX, bottomRightY), cv::Scalar(0, 170, 50), 3);
             std::vector<int> temp{frameID, rectangle_.x, rectangle_.y, \
