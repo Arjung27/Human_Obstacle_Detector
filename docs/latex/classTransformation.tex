@@ -1,0 +1,204 @@
+\hypertarget{classTransformation}{}\section{Transformation Class Reference}
+\label{classTransformation}\index{Transformation@{Transformation}}
+
+
+Class for implementing Frame transformations.  
+
+
+
+
+{\ttfamily \#include $<$Transformation.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTransformation_a40ab64d41c752804740e972ef5f2479f}{Transformation} ()
+\begin{DoxyCompactList}\small\item\em Constructor for class. \end{DoxyCompactList}\item 
+\hyperlink{classTransformation_a919fd564686f686ff8060fc85d14e3f7}{Transformation} (cv\+::\+Mat base, cv\+::\+Mat end)
+\begin{DoxyCompactList}\small\item\em Constructor for class with base and end frame input. \end{DoxyCompactList}\item 
+\hyperlink{classTransformation_ade11a9f133b2acd81ae9383187cc255e}{$\sim$\+Transformation} ()\hypertarget{classTransformation_ade11a9f133b2acd81ae9383187cc255e}{}\label{classTransformation_ade11a9f133b2acd81ae9383187cc255e}
+
+\begin{DoxyCompactList}\small\item\em Destrcutor for class. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classTransformation_afcce8d7bce0b4760e90b2c9a4f33778b}{base\+To\+End} (cv\+::\+Mat vec)
+\begin{DoxyCompactList}\small\item\em Function to convert vector in base frame to end frame. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classTransformation_ae06ef579b76564a33e5db35f7d617161}{end\+To\+Base} (cv\+::\+Mat vec)
+\begin{DoxyCompactList}\small\item\em Function to convert vector in end frame to base frame. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classTransformation_a8a7c06d699c43a020069098aac504e27}{image\+To\+Camera} (cv\+::\+Mat intrinsic, cv\+::\+Mat vec\+Image2d)
+\begin{DoxyCompactList}\small\item\em Function to convert image coordinates to \hyperlink{classCamera}{Camera} coordinates. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classTransformation_a9e7afec78535b499d99c8d55e08f91f1}{camera\+To\+Image} (cv\+::\+Mat intrinsic, cv\+::\+Mat vec\+Camera4d)
+\begin{DoxyCompactList}\small\item\em Function to convert \hyperlink{classCamera}{Camera} coordinates to image coordinates. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classTransformation_a0536abd126af1fcffd0b7644ebf0b108}{get\+Base\+Frame} ()
+\begin{DoxyCompactList}\small\item\em Function to return base frame. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classTransformation_aea3e04cbe0289fcd34b51c6541a23242}{get\+End\+Frame} ()
+\begin{DoxyCompactList}\small\item\em Function to return end frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for implementing Frame transformations. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Transformation@{Transformation}!Transformation@{Transformation}}
+\index{Transformation@{Transformation}!Transformation@{Transformation}}
+\subsubsection[{\texorpdfstring{Transformation()}{Transformation()}}]{\setlength{\rightskip}{0pt plus 5cm}Transformation\+::\+Transformation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTransformation_a40ab64d41c752804740e972ef5f2479f}{}\label{classTransformation_a40ab64d41c752804740e972ef5f2479f}
+
+
+Constructor for class. 
+
+Initializes base and end frames as identity matrices \index{Transformation@{Transformation}!Transformation@{Transformation}}
+\index{Transformation@{Transformation}!Transformation@{Transformation}}
+\subsubsection[{\texorpdfstring{Transformation(cv\+::\+Mat base, cv\+::\+Mat end)}{Transformation(cv::Mat base, cv::Mat end)}}]{\setlength{\rightskip}{0pt plus 5cm}Transformation\+::\+Transformation (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{base, }
+\item[{cv\+::\+Mat}]{end}
+\end{DoxyParamCaption}
+)}\hypertarget{classTransformation_a919fd564686f686ff8060fc85d14e3f7}{}\label{classTransformation_a919fd564686f686ff8060fc85d14e3f7}
+
+
+Constructor for class with base and end frame input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em base} & Base Frame \\
+\hline
+{\em end} & End effector Frame \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Transformation@{Transformation}!base\+To\+End@{base\+To\+End}}
+\index{base\+To\+End@{base\+To\+End}!Transformation@{Transformation}}
+\subsubsection[{\texorpdfstring{base\+To\+End(cv\+::\+Mat vec)}{baseToEnd(cv::Mat vec)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Transformation\+::base\+To\+End (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{vec}
+\end{DoxyParamCaption}
+)}\hypertarget{classTransformation_afcce8d7bce0b4760e90b2c9a4f33778b}{}\label{classTransformation_afcce8d7bce0b4760e90b2c9a4f33778b}
+
+
+Function to convert vector in base frame to end frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector in base frame coordinates\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector in end frame coordinates 
+\end{DoxyReturn}
+\index{Transformation@{Transformation}!camera\+To\+Image@{camera\+To\+Image}}
+\index{camera\+To\+Image@{camera\+To\+Image}!Transformation@{Transformation}}
+\subsubsection[{\texorpdfstring{camera\+To\+Image(cv\+::\+Mat intrinsic, cv\+::\+Mat vec\+Camera4d)}{cameraToImage(cv::Mat intrinsic, cv::Mat vecCamera4d)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Transformation\+::camera\+To\+Image (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{intrinsic, }
+\item[{cv\+::\+Mat}]{vec\+Camera4d}
+\end{DoxyParamCaption}
+)}\hypertarget{classTransformation_a9e7afec78535b499d99c8d55e08f91f1}{}\label{classTransformation_a9e7afec78535b499d99c8d55e08f91f1}
+
+
+Function to convert \hyperlink{classCamera}{Camera} coordinates to image coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec\+Camera4d} & Vector of camera coordinates \\
+\hline
+{\em intrinsic} & Intrinsic matric of the camera\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector in image coordinates
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector in end frame coordinates\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector in base frame coordinates 
+\end{DoxyReturn}
+\index{Transformation@{Transformation}!end\+To\+Base@{end\+To\+Base}}
+\index{end\+To\+Base@{end\+To\+Base}!Transformation@{Transformation}}
+\subsubsection[{\texorpdfstring{end\+To\+Base(cv\+::\+Mat vec)}{endToBase(cv::Mat vec)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Transformation\+::end\+To\+Base (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{vec}
+\end{DoxyParamCaption}
+)}\hypertarget{classTransformation_ae06ef579b76564a33e5db35f7d617161}{}\label{classTransformation_ae06ef579b76564a33e5db35f7d617161}
+
+
+Function to convert vector in end frame to base frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector in end frame coordinates\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector in base frame coordinates 
+\end{DoxyReturn}
+\index{Transformation@{Transformation}!get\+Base\+Frame@{get\+Base\+Frame}}
+\index{get\+Base\+Frame@{get\+Base\+Frame}!Transformation@{Transformation}}
+\subsubsection[{\texorpdfstring{get\+Base\+Frame()}{getBaseFrame()}}]{\setlength{\rightskip}{0pt plus 5cm}auto Transformation\+::get\+Base\+Frame (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTransformation_a0536abd126af1fcffd0b7644ebf0b108}{}\label{classTransformation_a0536abd126af1fcffd0b7644ebf0b108}
+
+
+Function to return base frame. 
+
+\begin{DoxyReturn}{Returns}
+Base frame 
+\end{DoxyReturn}
+\index{Transformation@{Transformation}!get\+End\+Frame@{get\+End\+Frame}}
+\index{get\+End\+Frame@{get\+End\+Frame}!Transformation@{Transformation}}
+\subsubsection[{\texorpdfstring{get\+End\+Frame()}{getEndFrame()}}]{\setlength{\rightskip}{0pt plus 5cm}auto Transformation\+::get\+End\+Frame (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTransformation_aea3e04cbe0289fcd34b51c6541a23242}{}\label{classTransformation_aea3e04cbe0289fcd34b51c6541a23242}
+
+
+Function to return end frame. 
+
+\begin{DoxyReturn}{Returns}
+End frame 
+\end{DoxyReturn}
+\index{Transformation@{Transformation}!image\+To\+Camera@{image\+To\+Camera}}
+\index{image\+To\+Camera@{image\+To\+Camera}!Transformation@{Transformation}}
+\subsubsection[{\texorpdfstring{image\+To\+Camera(cv\+::\+Mat intrinsic, cv\+::\+Mat vec\+Image2d)}{imageToCamera(cv::Mat intrinsic, cv::Mat vecImage2d)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Transformation\+::image\+To\+Camera (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{intrinsic, }
+\item[{cv\+::\+Mat}]{vec\+Image2d}
+\end{DoxyParamCaption}
+)}\hypertarget{classTransformation_a8a7c06d699c43a020069098aac504e27}{}\label{classTransformation_a8a7c06d699c43a020069098aac504e27}
+
+
+Function to convert image coordinates to \hyperlink{classCamera}{Camera} coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec\+Image2d} & Vector in image coordinates \\
+\hline
+{\em intrinsic} & Intrinsic matric of the camera\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector in camera frame coordinates
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector in end frame coordinates\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector in base frame coordinates 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Transformation_8hpp}{Transformation.\+hpp}\item 
+app/\hyperlink{Transformation_8cpp}{Transformation.\+cpp}\end{DoxyCompactItemize}
