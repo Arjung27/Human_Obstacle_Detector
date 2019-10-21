@@ -43,13 +43,24 @@
  * @return none
  */
 TEST(DetectionModuleTest, TestGetFrame) {
-
   DetectionModule dm;
-  std::string testFilePath = "../test/testData/testImage.jpg";
+  std::string testFilePath1 = "../test/testData/testImage.jpg";
+  std::string testFilePath2 = "../test/testData/notTestImage.jpg";
   std::string testOutputDirectory = "../test/testResults/";
-  int testCameraID = 0;
-  
-  ASSERT_EQ(1, dm.getFrame(testFilePath, testCameraID, testOutputDirectory));
+  int testCameraID = -1;
+
+  ASSERT_EQ(1, dm.getFrame(testFilePath1, testCameraID, \
+                            testOutputDirectory, 1));
+  ASSERT_EQ(1, dm.getFrame(testFilePath1, testCameraID, \
+                            testOutputDirectory, 2));
+
+  ASSERT_EQ(0, dm.getFrame(testFilePath2, testCameraID, \
+                            testOutputDirectory, 1));
+  ASSERT_EQ(0, dm.getFrame(testFilePath2, testCameraID, \
+                            testOutputDirectory, 2));
+
+  ASSERT_EQ(0, dm.getFrame(testFilePath1, testCameraID, \
+                            testOutputDirectory, 3));
 
   cv::Mat testImage = cv::imread("../test/testData/testImage.jpg");
   cv::Mat testOutput = cv::imread("../test/testResults/testImageDetection.jpg");
@@ -66,11 +77,20 @@ TEST(DetectionModuleTest, TestGetFrame) {
  * @return none
  */
 TEST(DetectionModuleTest, TestPreProcessImage) {
-
   DetectionModule dm;
 
   cv::Mat testImage = cv::imread("../test/testData/testImage.jpg");
-  cv::Mat testOutput = dm.preProcessImage(testImage);
+  cv::Mat testOutput = dm.preProcessImage(testImage, 'G');
+
+  ASSERT_EQ(416, testOutput.cols);
+  ASSERT_EQ(416, testOutput.rows);
+
+  testOutput = dm.preProcessImage(testImage, 'B');
+
+  ASSERT_EQ(416, testOutput.cols);
+  ASSERT_EQ(416, testOutput.rows);
+
+  testOutput = dm.preProcessImage(testImage, 'M');
 
   ASSERT_EQ(416, testOutput.cols);
   ASSERT_EQ(416, testOutput.rows);
@@ -84,7 +104,6 @@ TEST(DetectionModuleTest, TestPreProcessImage) {
  * @return none
  */
 TEST(DetectionModuleTest, TestDetectObjects) {
-
   DetectionModule dm;
 
   cv::Mat testImage = cv::imread("../test/testData/testImage.jpg");
@@ -100,7 +119,6 @@ TEST(DetectionModuleTest, TestDetectObjects) {
  * @return none
  */
 TEST(DetectionModuleTest, TestPostProcessImage) {
-
   DetectionModule dm;
   int testFrameID = 0;
 
@@ -110,3 +128,4 @@ TEST(DetectionModuleTest, TestPostProcessImage) {
   ASSERT_EQ(testImage.cols, testOutput.cols);
   ASSERT_EQ(testImage.rows, testOutput.rows);
 }
+
