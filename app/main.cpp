@@ -31,8 +31,14 @@
  */
 
 #include <iostream>
+#include <fstream>
+#include "../include/DetectionModule.hpp"
+// #include "../include/VisionModule.hpp"
+#include "../include/IOHandler.hpp"
 
-int main()
-{
+int main() {
+    std::cout << "Welcome to the Vision Module" << std::endl;
+    DetectionModule module;
+    module.getInput();
     return 0;
 }
