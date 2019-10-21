@@ -49,13 +49,14 @@ The following steps discuss the overall workflow of the pipeline in the mentione
 
 ## Personnel 
 
-Rohan Singh: I am in my third semester of M.Eng. in Robotics at University of Maryland. You can follow me on my Linkedin ()
-Arjun Gupta: I am in my third semester of M.Eng. in Robotics at University of Maryland. My research interest lies in the field of computer vision. You can follow me on my Linkedin ()
+Rohan Singh: I am in my third semester of M.Eng. in Robotics at University of Maryland. You can follow me on my [Linkedin](www.linkedin.com/in/rohansingh42)
+Arjun Gupta: I am in my third semester of M.Eng. in Robotics at University of Maryland. My research interest lies in the field of computer vision. You can follow me on my [Linkedin](https://www.linkedin.com/in/arjung27/)
 
 ## Product Backlog 
 [![Packagist](https://img.shields.io/badge/AIP-Backlog-orange)](https://docs.google.com/spreadsheets/d/1Du2DV9m7JFUn_xO6RULXBDN6mna-3IR8e5ZURudZHeg/edit?usp=sharing)
+[![Packagist](https://img.shields.io/badge/AIP-Sprint-brightgreen)](https://docs.google.com/document/d/1uqs_taycl7V5bicxRjuwfQ20OX_oftU3iqrRO5jNhTU/edit?usp=sharing)
 
-The Agile Iterative Process was followed for the development of the software. Follow this Google Sheets [link](https://docs.google.com/spreadsheets/d/1Du2DV9m7JFUn_xO6RULXBDN6mna-3IR8e5ZURudZHeg/edit?usp=sharing) to view the product backlog and sprint schedules.
+The Agile Iterative Process was followed for the development of the software. Follow this Google Sheets [link](https://docs.google.com/spreadsheets/d/1Du2DV9m7JFUn_xO6RULXBDN6mna-3IR8e5ZURudZHeg/edit?usp=sharing) to view the product backlog and sprint schedules. Follow this Google Docs [link](https://docs.google.com/document/d/1uqs_taycl7V5bicxRjuwfQ20OX_oftU3iqrRO5jNhTU/edit?usp=sharing) to view Sprint Planning sheet.
 
 ## Dependencies
 To build this module, the following dependecies should be met:
@@ -76,10 +77,22 @@ make
 ```
 
 ## Run demo
+After building the package,
 ```
 cd <path to repository>
-./build/app/hodm-app
+cd build
+./app/hodm-app
 ```
+For a demo of the module functionality on an image, provide the input as indicated in the following figure.
+
+![Demo Screenshot](test/testData/demoScreenshot.jpg)
+
+The demo will run and show result image with detection boxes, and save a text file with the name "DetectionsFile.txt" in the _test/testResults/_ subdirectory. You may also provide your own images(just follow instructions shown on terminal and enter absolute pathe whenever asked).
+
+The output image will look like 
+![Demo Output](test/testResults/testImageDetection.jpg)
+
+For a demo with live detections from your laptop camera, choose option 3 when initially asked. Then enter a device ID(>0) and choose an output directory. Press the "Esc" to exit.
 
 ## Running tests
 ```
