@@ -32,7 +32,7 @@
 
 #include <iostream>
 
-#include "../include/VisionModule.hpp"
+#include "VisionModule.hpp"
 
 VisionModule::VisionModule() {
 }
