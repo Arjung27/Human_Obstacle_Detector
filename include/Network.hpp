@@ -90,8 +90,6 @@ class Network {
   /**
    * @brief Applies the network for human detection
    *
-   * @param image Input image for network
-   *
    * @return Vector of matrices(and a Image) containing detection information
    */
   std::vector<cv::Mat> applyYOLONetwork();
