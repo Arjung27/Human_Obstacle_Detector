@@ -34,6 +34,7 @@ matrix:
             - libjasper-dev
             - libdc1394-22-dev
             - libboost-all-dev
+            - qt5-default
       env: COMPILER=g++-5
 
 
