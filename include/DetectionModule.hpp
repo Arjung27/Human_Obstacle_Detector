@@ -36,11 +36,14 @@
 #include <iostream>
 #include <vector>
 #include <utility>
+#include <string>
+#include <opencv2/core/core.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 #include "VisionModule.hpp"
-#include "Network.hpp"
-#include "Camera.hpp"
 #include "IOHandler.hpp"
+#include "Network.hpp"
 #include "Transformation.hpp"
 
 /**
@@ -49,19 +52,33 @@
  * Inherits from VisionModule class
  */
 class DetectionModule : public VisionModule {
+ private:
+  /* Object of class Network */
+  Network network;
+  /* Object of class Transformation */
+  Transformation tf;
+  /* Object of class IOHandler */
+  IOHandler io;
+  /* Contains final detection information for one frame */
+  std::vector<cv::Mat> detectedObjects;
+  /* Choice of input - Image, Video or Live Cam Feed */
+  int inputChoice;
+  /* Object to parse the video frames */
+  cv::VideoCapture videoFrames;
+  /* Object to write the video frames*/
+  cv::VideoWriter videoWriter;
+  /* Confidence Threshold for the predictions */
+  float confidenceThreshold = 0.9;
+  /* Non-Maximum Threshold Value */
+  float nmsThreshold = 0.9;
+  /* Vector to store the vector of detection information */
+  std::vector< std::vector <int> > finalDetections;
+
  public :
   /**
    * @brief Constructor for class
    */
   DetectionModule();
-
-  /**
-   * @brief Constructor with params for class
-   *
-   * @param io Object containing Input/Output functionality
-   * @param camera Object containing Camera information
-   */
-  DetectionModule(IOHandler io, Camera camera);
 
   /** 
    * @brief Destrcutor for class
@@ -69,16 +86,16 @@ class DetectionModule : public VisionModule {
   ~DetectionModule();
 
   /**
-   * @brief Function executing the main pipeline of the detection module
+   * @brief Function passes the processed image to the network
    *
-   * Gets input, processes images, runs detection network on image, filters
-   * obtained detections, transforms obtained bounding boxes to robot frame
-   * and finally save output.
-   *
-   * @return Returns an int with an error code. Returns 0 if execution is
-   *         completed with no errors
+   * The functions takes input the processed image and then calls another
+   * function inside it to convert the image to blob
+   * 
+   * @param image the processed image in form of the matrix
+   * @return Returns an int with an error code. Returns 0 if the total 
+   * number of the detections is zero and 1 if not.
    */
-  int detectObjects();
+  int detectObjects(cv::Mat image);
 
   /**
    * @brief Processes the current frame (image) before passing to the
@@ -96,34 +113,43 @@ class DetectionModule : public VisionModule {
    * @brief Processes the current frame (image) and the obtained detection
    *        information from the detection network
    *
-   * Filters obtained bounding boxes from the network (using non-maximal
-   * suppresion) and draws the boxes on image for visualization.
+   * Filters obtained bounding boxes predicted from the network (using
+   * confidence threshold) and calls the function to apply NMS and draw
+   * the boxes on image for visualization.
    *
-   * @param boxes Vector of OpenCV matrices containing bounding box information
+   * @param frame image on which the postProcessing would occur
+   * @param frameID ID of the frame which is parsed
    *
    * @return Image after Processing
    */
-  cv::Mat postProcessImage(cv::Mat image);
+  cv::Mat postProcessImage(cv::Mat frame, int frameID);
 
   /**
    * @brief Function to get input from user. Uses IOHandler functionality
    *
-   * @return Returns an int with an error code. Returns 0 if execution is
-   *         completed with no errors
+   * @return void
    */
-  int getInput();
-
- private:
-  Camera camera;
-  Network network;
-  Transformation tf;
-  IOHandler io;
-
-  /* Contains final detection information for one frame */
-  std::vector<std::vector<float>> detectedObjects;
-
-  /* Choice of input - Image, Video or Live Cam Feed */
-  int inputChoice;
+  void getInput();
+  /**
+   * @brief Function to call all the other functions of the class and also
+   *        the functions of class with part of relationship
+   * 
+   * This function performs the fundamental role in the module. It integrates
+   * all the preprocess and postprocess of the data with the functionality of 
+   * the network.
+   * 
+   * @param filePath contains the path of the file to be parsed and feeded to
+   *                 the network.
+   * @param cameraID contains the cameraID if user choses camera to be the mode
+   *                 of input.
+   * @param outputDirectory path where the results need to be stored 
+   *  
+   *
+   * @return 0 if the data is invalid or the cameraID is invalid and return 1
+   *        if the module runs successfully.
+   */
+  int getFrame(std::string filePath, int cameraID, \
+                              std::string outputDirectory);
 };
 
 #endif    // INCLUDE_DETECTIONMODULE_HPP_
