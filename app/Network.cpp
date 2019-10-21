@@ -31,5 +31,52 @@
  */
 
 #include <iostream>
+#include "../include/Network.hpp"
 
-#include "Network.hpp"
+Network::Network() {
+}
+
+Network::~Network() {
+}
+
+auto Network::createNetworkInput(cv::Mat image) -> int {
+    /* Checks if the given image is valid or not */
+    if (!image.data) {
+      return 0;
+    } else {
+      /* Make a blob for the input to the network */
+      blob = cv::dnn::blobFromImage(image, 1/255.0, \
+      cv::Size(imageWidth, imageHeight), \
+      cv::Scalar(0, 0, 0), true, false);
+      return 1;
+    }
+}
+
+auto Network::applyYOLONetwork() -> std::vector<cv::Mat> {
+    std::vector<cv::Mat> detectedObjects;
+    /* Store the path of configuration and weight files */
+    configurationFilePath = "../modelFiles/yolov3.cfg";
+    weightsFilePath = "../modelFiles/yolov3.weights";
+    /* Load the weights and the config file to the Network */
+    yoloNetwork = cv::dnn::readNetFromDarknet(\
+            configurationFilePath, weightsFilePath);
+    /* Set backend type for the network */
+    yoloNetwork.setPreferableBackend(cv::dnn::DNN_BACKEND_DEFAULT);
+    /* Set the target processor */
+    yoloNetwork.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);
+    /* Pass the input to the network */
+    yoloNetwork.setInput(blob);
+    std::vector<int> outLayers{yoloNetwork.getUnconnectedOutLayers()};
+    std::vector<cv::String> outLayerNames{yoloNetwork.getLayerNames()};
+    std::vector<cv::String> outLayerNamesCopy;
+    /* Make a copy of names of the layers */
+    outLayerNamesCopy.resize(outLayerNames.size());
+    int i = 0;
+    for (auto names : outLayers) {
+        outLayerNamesCopy[i] = outLayerNames[names - 1];
+        i++;
+    }
+    /* Forward pass of the network */
+    yoloNetwork.forward(detectedObjects, outLayerNamesCopy);
+    return detectedObjects;
+}

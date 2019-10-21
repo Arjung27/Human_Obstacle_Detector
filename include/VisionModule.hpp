@@ -67,8 +67,8 @@ class VisionModule {
    *
    * @return Image after applying filter
    */
-  virtual cv::Mat applyGaussianFilter(cv::Mat image,
-      int kernelDim, float sigma);
+  cv::Mat applyGaussianFilter(cv::Mat image, \
+      cv::Size kernelDim, float sigma);
 
   /**
    * @brief Applies Mean Filter to given image.
@@ -78,7 +78,7 @@ class VisionModule {
    *
    * @return Image after applying filter
    */
-  virtual cv::Mat applyMeanFilter(cv::Mat image, int kernelDim);
+  cv::Mat applyFilter(cv::Mat image, cv::Size kernelDim);
 
   /**
    * @brief Applies Median Filter to given image.
@@ -88,7 +88,7 @@ class VisionModule {
    *
    * @return Image after applying filter
    */
-  virtual cv::Mat applyMedianFilter(cv::Mat image, int kernelDim);
+  cv::Mat applyMedianFilter(cv::Mat image, int kernelDim);
 
   /**
    * @brief Reshapes given image to given dimension
@@ -99,26 +99,37 @@ class VisionModule {
    *
    * @return Image after reshaping it
    */
-  virtual cv::Mat reshape(cv::Mat image, std::pair<int, int> dim);
+  cv::Mat reshape(cv::Mat image, cv::Size dim);
 
   /**
    * @brief Applies Non Maximal Suppression Algorithm
    *
    * Given a set of bounding boxes of detected objects in an
    * image, the algorithm removes overlapping boxes that may be
-   * enclosing the same object.
+   * enclosing the same object. The same function also draws the bounding
+   * boxes on the passed image.
    *
    * @param image Image on which the objects have been detected
-   * @param boxes Vector of vectors of float, contains information
-   *              of all the bounding boxes detected. In order, the
-   *              information comprises of, frame no., object no.,
-   *              center, upper left and bottom right points of the box,
-   *              confidence level of enclosing the object.
+   * @param predictedBoxes Vector owith data type cv::rect, contains 
+   *              information of all the bounding boxes detected. In order, the
+   *              information comprises of upper left and bottom right points
+   *              corners of the box.
+   * @param confidenceScores Vector contains the confidence scores of all the 
+   *                        boxes above threshold.
+   * @param classIds vector that contain the classIds of all the detections.
+   * @param frameID denotes the frame number associated with the image.
    *
    * @return Modified Vector of bounding box information
    */
-  virtual std::vector<std::vector<float>> nonMaximalSuppression(
-      cv::Mat image, std::vector<std::vector<float>>);
-}
+  std::vector< std::vector<int> > nonMaximalSuppression(cv::Mat &frame, \
+  std::vector<cv::Rect>& predictedBoxes, std::vector<float> confidenceScores, \
+        std::vector<int> classIds, int frameID);
+
+ private:
+  /* Confidence Threshold for the detections */
+  float confidenceThreshold = 0.9;
+  /* NMS Threshold for the detections */
+  float nmsThreshold = 0.9;
+};
 
 #endif    // INCLUDE_VISIONMODULE_HPP_

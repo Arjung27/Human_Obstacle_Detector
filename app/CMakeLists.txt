@@ -1,7 +1,6 @@
 add_executable(hodm-app main.cpp 
 						 VisionModule.cpp
 						 DetectionModule.cpp
-						 Camera.cpp
 						 Network.cpp
 						 Transformation.cpp
 						 IOHandler.cpp)
@@ -10,5 +9,5 @@ include_directories(
     ${OpenCV_INCLUDE_DIRS}
 )
 
-target_link_libraries( hodm-app ${OpenCV_LIBS} )
+target_link_libraries( hodm-app ${OpenCV_LIBS}
 )

@@ -1,0 +1,148 @@
+\hypertarget{classIOHandler}{}\section{I\+O\+Handler Class Reference}
+\label{classIOHandler}\index{I\+O\+Handler@{I\+O\+Handler}}
+
+
+Class to manage the input output functionality of the module.  
+
+
+
+
+{\ttfamily \#include $<$I\+O\+Handler.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classIOHandler_a27272b659d19b90caa9f82d5eefb3d89}{I\+O\+Handler} ()\hypertarget{classIOHandler_a27272b659d19b90caa9f82d5eefb3d89}{}\label{classIOHandler_a27272b659d19b90caa9f82d5eefb3d89}
+
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classIOHandler_af0e55c7ef92c62d7346883c0e66e4f1f}{I\+O\+Handler} (std\+::istream \&input, std\+::ostream \&output)
+\begin{DoxyCompactList}\small\item\em Parametric constructor. \end{DoxyCompactList}\item 
+\hyperlink{classIOHandler_aef78ba30518e3fa1951424ff3adb0490}{$\sim$\+I\+O\+Handler} ()\hypertarget{classIOHandler_aef78ba30518e3fa1951424ff3adb0490}{}\label{classIOHandler_aef78ba30518e3fa1951424ff3adb0490}
+
+\begin{DoxyCompactList}\small\item\em Default Destructor. \end{DoxyCompactList}\item 
+int \hyperlink{classIOHandler_a3f67a9ba2c496895443cd12af0786749}{get\+Input\+Choice} ()
+\begin{DoxyCompactList}\small\item\em Takes the input from the user. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classIOHandler_a0cd2ab4b1fea5696e63e626b0ade9182}{get\+Input\+File\+Path} ()
+\begin{DoxyCompactList}\small\item\em Takes the input file path from the user. \end{DoxyCompactList}\item 
+int \hyperlink{classIOHandler_ab032ccce83ab9fdd990dd163bc791f57}{get\+Device\+ID} ()
+\begin{DoxyCompactList}\small\item\em Takes the device ID if the input is taken using camera. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classIOHandler_a2bc83b86cbec3a5bea71d28e7abaa58e}{get\+Output\+File\+Path} ()
+\begin{DoxyCompactList}\small\item\em Gets the path of the output directory to story detections and and text files. \end{DoxyCompactList}\item 
+void \hyperlink{classIOHandler_a86d53a227457528275b8ab3bd653654f}{save\+Output} (std\+::vector$<$ std\+::vector$<$ int $>$ $>$ final\+Detections, std\+::string output\+Directory)
+\begin{DoxyCompactList}\small\item\em Saves the text file in the output directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to manage the input output functionality of the module. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{I\+O\+Handler@{I\+O\+Handler}!I\+O\+Handler@{I\+O\+Handler}}
+\index{I\+O\+Handler@{I\+O\+Handler}!I\+O\+Handler@{I\+O\+Handler}}
+\subsubsection[{\texorpdfstring{I\+O\+Handler(std\+::istream \&input, std\+::ostream \&output)}{IOHandler(std::istream &input, std::ostream &output)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+O\+Handler\+::\+I\+O\+Handler (
+\begin{DoxyParamCaption}
+\item[{std\+::istream \&}]{input, }
+\item[{std\+::ostream \&}]{output}
+\end{DoxyParamCaption}
+)}\hypertarget{classIOHandler_af0e55c7ef92c62d7346883c0e66e4f1f}{}\label{classIOHandler_af0e55c7ef92c62d7346883c0e66e4f1f}
+
+
+Parametric constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & the input entered by the user \\
+\hline
+{\em output} & the information to be output by the module \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{I\+O\+Handler@{I\+O\+Handler}!get\+Device\+ID@{get\+Device\+ID}}
+\index{get\+Device\+ID@{get\+Device\+ID}!I\+O\+Handler@{I\+O\+Handler}}
+\subsubsection[{\texorpdfstring{get\+Device\+I\+D()}{getDeviceID()}}]{\setlength{\rightskip}{0pt plus 5cm}auto I\+O\+Handler\+::get\+Device\+ID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classIOHandler_ab032ccce83ab9fdd990dd163bc791f57}{}\label{classIOHandler_ab032ccce83ab9fdd990dd163bc791f57}
+
+
+Takes the device ID if the input is taken using camera. 
+
+\begin{DoxyReturn}{Returns}
+the ID of the device 
+\end{DoxyReturn}
+\index{I\+O\+Handler@{I\+O\+Handler}!get\+Input\+Choice@{get\+Input\+Choice}}
+\index{get\+Input\+Choice@{get\+Input\+Choice}!I\+O\+Handler@{I\+O\+Handler}}
+\subsubsection[{\texorpdfstring{get\+Input\+Choice()}{getInputChoice()}}]{\setlength{\rightskip}{0pt plus 5cm}auto I\+O\+Handler\+::get\+Input\+Choice (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classIOHandler_a3f67a9ba2c496895443cd12af0786749}{}\label{classIOHandler_a3f67a9ba2c496895443cd12af0786749}
+
+
+Takes the input from the user. 
+
+Takes the input of the options from the user and also checks whether the input is valid or not
+
+\begin{DoxyReturn}{Returns}
+the integer entered by the user as a choice 
+\end{DoxyReturn}
+Loop to enforce that user choose one of the provided options \index{I\+O\+Handler@{I\+O\+Handler}!get\+Input\+File\+Path@{get\+Input\+File\+Path}}
+\index{get\+Input\+File\+Path@{get\+Input\+File\+Path}!I\+O\+Handler@{I\+O\+Handler}}
+\subsubsection[{\texorpdfstring{get\+Input\+File\+Path()}{getInputFilePath()}}]{\setlength{\rightskip}{0pt plus 5cm}auto I\+O\+Handler\+::get\+Input\+File\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classIOHandler_a0cd2ab4b1fea5696e63e626b0ade9182}{}\label{classIOHandler_a0cd2ab4b1fea5696e63e626b0ade9182}
+
+
+Takes the input file path from the user. 
+
+Also checks whether the file mentioned exists or not
+
+\begin{DoxyReturn}{Returns}
+path of the input file as entered by the user 
+\end{DoxyReturn}
+Loop to check that the path given by the user is correct or not \index{I\+O\+Handler@{I\+O\+Handler}!get\+Output\+File\+Path@{get\+Output\+File\+Path}}
+\index{get\+Output\+File\+Path@{get\+Output\+File\+Path}!I\+O\+Handler@{I\+O\+Handler}}
+\subsubsection[{\texorpdfstring{get\+Output\+File\+Path()}{getOutputFilePath()}}]{\setlength{\rightskip}{0pt plus 5cm}auto I\+O\+Handler\+::get\+Output\+File\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classIOHandler_a2bc83b86cbec3a5bea71d28e7abaa58e}{}\label{classIOHandler_a2bc83b86cbec3a5bea71d28e7abaa58e}
+
+
+Gets the path of the output directory to story detections and and text files. 
+
+\begin{DoxyReturn}{Returns}
+path of the directory where the results will be stored 
+\end{DoxyReturn}
+\index{I\+O\+Handler@{I\+O\+Handler}!save\+Output@{save\+Output}}
+\index{save\+Output@{save\+Output}!I\+O\+Handler@{I\+O\+Handler}}
+\subsubsection[{\texorpdfstring{save\+Output(std\+::vector$<$ std\+::vector$<$ int $>$ $>$ final\+Detections, std\+::string output\+Directory)}{saveOutput(std::vector< std::vector< int > > finalDetections, std::string outputDirectory)}}]{\setlength{\rightskip}{0pt plus 5cm}auto I\+O\+Handler\+::save\+Output (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::vector$<$ int $>$ $>$}]{final\+Detections, }
+\item[{std\+::string}]{output\+Directory}
+\end{DoxyParamCaption}
+)}\hypertarget{classIOHandler_a86d53a227457528275b8ab3bd653654f}{}\label{classIOHandler_a86d53a227457528275b8ab3bd653654f}
+
+
+Saves the text file in the output directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em final\+Detections} & Vector of vectors to store the final detections after the complete preprocessing \\
+\hline
+{\em output\+Directory} & the path of the directory to store the results\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{IOHandler_8hpp}{I\+O\+Handler.\+hpp}\item 
+app/\hyperlink{IOHandler_8cpp}{I\+O\+Handler.\+cpp}\end{DoxyCompactItemize}

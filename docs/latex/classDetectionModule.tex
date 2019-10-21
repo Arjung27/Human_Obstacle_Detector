@@ -1,0 +1,175 @@
+\hypertarget{classDetectionModule}{}\section{Detection\+Module Class Reference}
+\label{classDetectionModule}\index{Detection\+Module@{Detection\+Module}}
+
+
+Class for Implementing Human Obstacle Detection Algorithms.  
+
+
+
+
+{\ttfamily \#include $<$Detection\+Module.\+hpp$>$}
+
+
+
+Inheritance diagram for Detection\+Module\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{classDetectionModule__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Detection\+Module\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{classDetectionModule__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDetectionModule_a4932f860fdbd74d8e6c05a7d8c38663b}{Detection\+Module} ()\hypertarget{classDetectionModule_a4932f860fdbd74d8e6c05a7d8c38663b}{}\label{classDetectionModule_a4932f860fdbd74d8e6c05a7d8c38663b}
+
+\begin{DoxyCompactList}\small\item\em Constructor for class. \end{DoxyCompactList}\item 
+\hyperlink{classDetectionModule_aead68009e498043dcfb41549c8bc9b12}{$\sim$\+Detection\+Module} ()\hypertarget{classDetectionModule_aead68009e498043dcfb41549c8bc9b12}{}\label{classDetectionModule_aead68009e498043dcfb41549c8bc9b12}
+
+\begin{DoxyCompactList}\small\item\em Destrcutor for class. \end{DoxyCompactList}\item 
+int \hyperlink{classDetectionModule_a19425b06ff8ab05da7baf445da26f94a}{detect\+Objects} (cv\+::\+Mat image)
+\begin{DoxyCompactList}\small\item\em Function passes the processed image to the network. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classDetectionModule_a50f820e631ffbda26d20a1b2fb6b5790}{pre\+Process\+Image} (cv\+::\+Mat image, char filter\+Type)
+\begin{DoxyCompactList}\small\item\em Processes the current frame (image) before passing to the detection network. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classDetectionModule_a2f4d5396fb17a484f6f9905598070e47}{post\+Process\+Image} (cv\+::\+Mat frame, int frame\+ID)
+\begin{DoxyCompactList}\small\item\em Processes the current frame (image) and the obtained detection information from the detection network. \end{DoxyCompactList}\item 
+void \hyperlink{classDetectionModule_ae6cbbbc1bfd1326b8ebbd83bc9e714bf}{get\+Input} ()
+\begin{DoxyCompactList}\small\item\em Function to get input from user. Uses \hyperlink{classIOHandler}{I\+O\+Handler} functionality. \end{DoxyCompactList}\item 
+int \hyperlink{classDetectionModule_a8d9d9c0e5b988ce56a290fa0e1fe56ae}{get\+Frame} (std\+::string file\+Path, int camera\+ID, std\+::string output\+Directory, int choice)
+\begin{DoxyCompactList}\small\item\em Function to call all the other functions of the class and also the functions of class with part of relationship. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for Implementing Human Obstacle Detection Algorithms. 
+
+Inherits from \hyperlink{classVisionModule}{Vision\+Module} class 
+
+\subsection{Member Function Documentation}
+\index{Detection\+Module@{Detection\+Module}!detect\+Objects@{detect\+Objects}}
+\index{detect\+Objects@{detect\+Objects}!Detection\+Module@{Detection\+Module}}
+\subsubsection[{\texorpdfstring{detect\+Objects(cv\+::\+Mat image)}{detectObjects(cv::Mat image)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Detection\+Module\+::detect\+Objects (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{image}
+\end{DoxyParamCaption}
+)}\hypertarget{classDetectionModule_a19425b06ff8ab05da7baf445da26f94a}{}\label{classDetectionModule_a19425b06ff8ab05da7baf445da26f94a}
+
+
+Function passes the processed image to the network. 
+
+The functions takes input the processed image and then calls another function inside it to convert the image to blob
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & the processed image in form of the matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int with an error code. Returns 0 if the total number of the detections is zero and 1 if not. 
+\end{DoxyReturn}
+\index{Detection\+Module@{Detection\+Module}!get\+Frame@{get\+Frame}}
+\index{get\+Frame@{get\+Frame}!Detection\+Module@{Detection\+Module}}
+\subsubsection[{\texorpdfstring{get\+Frame(std\+::string file\+Path, int camera\+I\+D, std\+::string output\+Directory, int choice)}{getFrame(std::string filePath, int cameraID, std::string outputDirectory, int choice)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Detection\+Module\+::get\+Frame (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file\+Path, }
+\item[{int}]{camera\+ID, }
+\item[{std\+::string}]{output\+Directory, }
+\item[{int}]{choice}
+\end{DoxyParamCaption}
+)}\hypertarget{classDetectionModule_a8d9d9c0e5b988ce56a290fa0e1fe56ae}{}\label{classDetectionModule_a8d9d9c0e5b988ce56a290fa0e1fe56ae}
+
+
+Function to call all the other functions of the class and also the functions of class with part of relationship. 
+
+This function performs the fundamental role in the module. It integrates all the preprocess and postprocess of the data with the functionality of the network.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & contains the path of the file to be parsed and feeded to the network. \\
+\hline
+{\em camera\+ID} & contains the camera\+ID if user choses camera to be the mode of input. \\
+\hline
+{\em output\+Directory} & path where the results need to be stored \\
+\hline
+{\em choice} & Choice of input format(image/video/camera) given by user\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the data is invalid or the camera\+ID is invalid and return 1 if the module runs successfully. 
+\end{DoxyReturn}
+\index{Detection\+Module@{Detection\+Module}!get\+Input@{get\+Input}}
+\index{get\+Input@{get\+Input}!Detection\+Module@{Detection\+Module}}
+\subsubsection[{\texorpdfstring{get\+Input()}{getInput()}}]{\setlength{\rightskip}{0pt plus 5cm}auto Detection\+Module\+::get\+Input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classDetectionModule_ae6cbbbc1bfd1326b8ebbd83bc9e714bf}{}\label{classDetectionModule_ae6cbbbc1bfd1326b8ebbd83bc9e714bf}
+
+
+Function to get input from user. Uses \hyperlink{classIOHandler}{I\+O\+Handler} functionality. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\index{Detection\+Module@{Detection\+Module}!post\+Process\+Image@{post\+Process\+Image}}
+\index{post\+Process\+Image@{post\+Process\+Image}!Detection\+Module@{Detection\+Module}}
+\subsubsection[{\texorpdfstring{post\+Process\+Image(cv\+::\+Mat frame, int frame\+I\+D)}{postProcessImage(cv::Mat frame, int frameID)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Detection\+Module\+::post\+Process\+Image (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{frame, }
+\item[{int}]{frame\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classDetectionModule_a2f4d5396fb17a484f6f9905598070e47}{}\label{classDetectionModule_a2f4d5396fb17a484f6f9905598070e47}
+
+
+Processes the current frame (image) and the obtained detection information from the detection network. 
+
+Filters obtained bounding boxes predicted from the network (using confidence threshold) and calls the function to apply N\+MS and draw the boxes on image for visualization.
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & image on which the post\+Processing would occur \\
+\hline
+{\em frame\+ID} & ID of the frame which is parsed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image after Processing 
+\end{DoxyReturn}
+\index{Detection\+Module@{Detection\+Module}!pre\+Process\+Image@{pre\+Process\+Image}}
+\index{pre\+Process\+Image@{pre\+Process\+Image}!Detection\+Module@{Detection\+Module}}
+\subsubsection[{\texorpdfstring{pre\+Process\+Image(cv\+::\+Mat image, char filter\+Type)}{preProcessImage(cv::Mat image, char filterType)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Detection\+Module\+::pre\+Process\+Image (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{image, }
+\item[{char}]{filter\+Type}
+\end{DoxyParamCaption}
+)}\hypertarget{classDetectionModule_a50f820e631ffbda26d20a1b2fb6b5790}{}\label{classDetectionModule_a50f820e631ffbda26d20a1b2fb6b5790}
+
+
+Processes the current frame (image) before passing to the detection network. 
+
+Removes noise from the image and resizes it to appropriate shape
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Current frame (image) on which detection is to be done \\
+\hline
+{\em filter\+Type} & Type of filter to be used for removing noise\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image after Processing 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{DetectionModule_8hpp}{Detection\+Module.\+hpp}\item 
+app/\hyperlink{DetectionModule_8cpp}{Detection\+Module.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,177 @@
+\hypertarget{classVisionModule}{}\section{Vision\+Module Class Reference}
+\label{classVisionModule}\index{Vision\+Module@{Vision\+Module}}
+
+
+Class for Vision based functionality.  
+
+
+
+
+{\ttfamily \#include $<$Vision\+Module.\+hpp$>$}
+
+
+
+Inheritance diagram for Vision\+Module\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{classVisionModule__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classVisionModule_a08440f0aeb474f1927b98e01953f47b0}{Vision\+Module} ()\hypertarget{classVisionModule_a08440f0aeb474f1927b98e01953f47b0}{}\label{classVisionModule_a08440f0aeb474f1927b98e01953f47b0}
+
+\begin{DoxyCompactList}\small\item\em Constructor for class. \end{DoxyCompactList}\item 
+virtual \hyperlink{classVisionModule_a820fbd8149b606d24135e2738beb50ec}{$\sim$\+Vision\+Module} ()\hypertarget{classVisionModule_a820fbd8149b606d24135e2738beb50ec}{}\label{classVisionModule_a820fbd8149b606d24135e2738beb50ec}
+
+\begin{DoxyCompactList}\small\item\em Destrcutor for class. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classVisionModule_a03604428a8b644291e24046b306250a3}{apply\+Gaussian\+Filter} (cv\+::\+Mat image, cv\+::\+Size kernel\+Dim, float sigma)
+\begin{DoxyCompactList}\small\item\em Applies Gaussian Filter to given image. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classVisionModule_af8f8e435bac0d2db615b169de62567b9}{apply\+Filter} (cv\+::\+Mat image, cv\+::\+Size kernel\+Dim)
+\begin{DoxyCompactList}\small\item\em Applies Mean Filter to given image. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classVisionModule_ac80542fc84b24a098d8334f924e36971}{apply\+Median\+Filter} (cv\+::\+Mat image, int kernel\+Dim)
+\begin{DoxyCompactList}\small\item\em Applies Median Filter to given image. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classVisionModule_af6d95de1a23cb8d6ec6f646d1906fd63}{reshape} (cv\+::\+Mat image, cv\+::\+Size dim)
+\begin{DoxyCompactList}\small\item\em Reshapes given image to given dimension. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classVisionModule_a5fb286b3086a7235fda74ab7258bb227}{non\+Maximal\+Suppression} (cv\+::\+Mat \&frame, std\+::vector$<$ cv\+::\+Rect $>$ \&predicted\+Boxes, std\+::vector$<$ float $>$ confidence\+Scores, std\+::vector$<$ int $>$ class\+Ids, int frame\+ID)
+\begin{DoxyCompactList}\small\item\em Applies Non Maximal Suppression Algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for Vision based functionality. 
+
+\subsection{Member Function Documentation}
+\index{Vision\+Module@{Vision\+Module}!apply\+Filter@{apply\+Filter}}
+\index{apply\+Filter@{apply\+Filter}!Vision\+Module@{Vision\+Module}}
+\subsubsection[{\texorpdfstring{apply\+Filter(cv\+::\+Mat image, cv\+::\+Size kernel\+Dim)}{applyFilter(cv::Mat image, cv::Size kernelDim)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Vision\+Module\+::apply\+Filter (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{image, }
+\item[{cv\+::\+Size}]{kernel\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classVisionModule_af8f8e435bac0d2db615b169de62567b9}{}\label{classVisionModule_af8f8e435bac0d2db615b169de62567b9}
+
+
+Applies Mean Filter to given image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Image on which the filter will be applied \\
+\hline
+{\em kernel\+Dim} & Size of kernel matrix\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image after applying filter 
+\end{DoxyReturn}
+\index{Vision\+Module@{Vision\+Module}!apply\+Gaussian\+Filter@{apply\+Gaussian\+Filter}}
+\index{apply\+Gaussian\+Filter@{apply\+Gaussian\+Filter}!Vision\+Module@{Vision\+Module}}
+\subsubsection[{\texorpdfstring{apply\+Gaussian\+Filter(cv\+::\+Mat image, cv\+::\+Size kernel\+Dim, float sigma)}{applyGaussianFilter(cv::Mat image, cv::Size kernelDim, float sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Vision\+Module\+::apply\+Gaussian\+Filter (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{image, }
+\item[{cv\+::\+Size}]{kernel\+Dim, }
+\item[{float}]{sigma}
+\end{DoxyParamCaption}
+)}\hypertarget{classVisionModule_a03604428a8b644291e24046b306250a3}{}\label{classVisionModule_a03604428a8b644291e24046b306250a3}
+
+
+Applies Gaussian Filter to given image. 
+
+The kernel is assumed to be a square matrix with equal sigma in both x and y directions
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Image on which the filter will be applied \\
+\hline
+{\em kernel\+Dim} & Size of kernel matrix \\
+\hline
+{\em sigma} & Standard deviation for the Gaussian kernel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image after applying filter 
+\end{DoxyReturn}
+\index{Vision\+Module@{Vision\+Module}!apply\+Median\+Filter@{apply\+Median\+Filter}}
+\index{apply\+Median\+Filter@{apply\+Median\+Filter}!Vision\+Module@{Vision\+Module}}
+\subsubsection[{\texorpdfstring{apply\+Median\+Filter(cv\+::\+Mat image, int kernel\+Dim)}{applyMedianFilter(cv::Mat image, int kernelDim)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Vision\+Module\+::apply\+Median\+Filter (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{image, }
+\item[{int}]{kernel\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classVisionModule_ac80542fc84b24a098d8334f924e36971}{}\label{classVisionModule_ac80542fc84b24a098d8334f924e36971}
+
+
+Applies Median Filter to given image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Image on which the filter will be applied \\
+\hline
+{\em kernel\+Dim} & Size of kernel matrix\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image after applying filter 
+\end{DoxyReturn}
+\index{Vision\+Module@{Vision\+Module}!non\+Maximal\+Suppression@{non\+Maximal\+Suppression}}
+\index{non\+Maximal\+Suppression@{non\+Maximal\+Suppression}!Vision\+Module@{Vision\+Module}}
+\subsubsection[{\texorpdfstring{non\+Maximal\+Suppression(cv\+::\+Mat \&frame, std\+::vector$<$ cv\+::\+Rect $>$ \&predicted\+Boxes, std\+::vector$<$ float $>$ confidence\+Scores, std\+::vector$<$ int $>$ class\+Ids, int frame\+I\+D)}{nonMaximalSuppression(cv::Mat &frame, std::vector< cv::Rect > &predictedBoxes, std::vector< float > confidenceScores, std::vector< int > classIds, int frameID)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ std\+::vector$<$ int $>$ $>$ Vision\+Module\+::non\+Maximal\+Suppression (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat \&}]{frame, }
+\item[{std\+::vector$<$ cv\+::\+Rect $>$ \&}]{predicted\+Boxes, }
+\item[{std\+::vector$<$ float $>$}]{confidence\+Scores, }
+\item[{std\+::vector$<$ int $>$}]{class\+Ids, }
+\item[{int}]{frame\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classVisionModule_a5fb286b3086a7235fda74ab7258bb227}{}\label{classVisionModule_a5fb286b3086a7235fda74ab7258bb227}
+
+
+Applies Non Maximal Suppression Algorithm. 
+
+Given a set of bounding boxes of detected objects in an image, the algorithm removes overlapping boxes that may be enclosing the same object. The same function also draws the bounding boxes on the passed image.
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Image on which the objects have been detected \\
+\hline
+{\em predicted\+Boxes} & Vector owith data type cv\+::rect, contains information of all the bounding boxes detected. In order, the information comprises of upper left and bottom right points corners of the box. \\
+\hline
+{\em confidence\+Scores} & Vector contains the confidence scores of all the boxes above threshold. \\
+\hline
+{\em class\+Ids} & vector that contain the class\+Ids of all the detections. \\
+\hline
+{\em frame\+ID} & denotes the frame number associated with the image.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Modified Vector of bounding box information 
+\end{DoxyReturn}
+\index{Vision\+Module@{Vision\+Module}!reshape@{reshape}}
+\index{reshape@{reshape}!Vision\+Module@{Vision\+Module}}
+\subsubsection[{\texorpdfstring{reshape(cv\+::\+Mat image, cv\+::\+Size dim)}{reshape(cv::Mat image, cv::Size dim)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Vision\+Module\+::reshape (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{image, }
+\item[{cv\+::\+Size}]{dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classVisionModule_af6d95de1a23cb8d6ec6f646d1906fd63}{}\label{classVisionModule_af6d95de1a23cb8d6ec6f646d1906fd63}
+
+
+Reshapes given image to given dimension. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Image to be reshaped \\
+\hline
+{\em shape} & Pair of ints giving the Dimension the image has to be rehsaped to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image after reshaping it 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{VisionModule_8hpp}{Vision\+Module.\+hpp}\item 
+app/\hyperlink{VisionModule_8cpp}{Vision\+Module.\+cpp}\end{DoxyCompactItemize}

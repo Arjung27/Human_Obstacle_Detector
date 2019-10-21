@@ -1,0 +1,7 @@
+<map id="include/VisionModule.hpp" name="include/VisionModule.hpp">
+<area shape="rect" id="node2" href="$DetectionModule_8hpp.html" title="Declares DetectionModule child class inheriting from VisionModule. " alt="" coords="99,80,290,107"/>
+<area shape="rect" id="node5" href="$VisionModule_8cpp.html" title="Definition for VisionModule class. " alt="" coords="314,80,465,107"/>
+<area shape="rect" id="node6" href="$VisionModuleTest_8cpp.html" title="Contains Unit Tests for VisionModule class. " alt="" coords="489,80,666,107"/>
+<area shape="rect" id="node3" href="$DetectionModule_8cpp.html" title="Definition for DetectionModule class. " alt="" coords="5,155,176,181"/>
+<area shape="rect" id="node4" href="$DetectionModuleTest_8cpp.html" title="Contains Unit Tests for DetectionModule class. " alt="" coords="200,155,397,181"/>
+</map>

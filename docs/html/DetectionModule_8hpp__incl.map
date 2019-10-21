@@ -1,0 +1,6 @@
+<map id="include/DetectionModule.hpp" name="include/DetectionModule.hpp">
+<area shape="rect" id="node9" href="$VisionModule_8hpp.html" title="Declares VisionModule base class for DetectionModule class. " alt="" coords="485,80,610,107"/>
+<area shape="rect" id="node10" href="$IOHandler_8hpp.html" title="Declares IOHandler class. " alt="" coords="303,80,410,107"/>
+<area shape="rect" id="node12" href="$Network_8hpp.html" title="Declares Network class. " alt="" coords="1009,80,1105,107"/>
+<area shape="rect" id="node16" href="$Transformation_8hpp.html" title="Declares Transformation class. " alt="" coords="685,80,820,107"/>
+</map>

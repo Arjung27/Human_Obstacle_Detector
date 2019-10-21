@@ -1,0 +1,69 @@
+\hypertarget{classNetwork}{}\section{Network Class Reference}
+\label{classNetwork}\index{Network@{Network}}
+
+
+Class for Implementing Neural \hyperlink{classNetwork}{Network} for Human Detection.  
+
+
+
+
+{\ttfamily \#include $<$Network.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNetwork_a3cc2fb4f8fa4d507077e8da85ce5a1c8}{Network} ()\hypertarget{classNetwork_a3cc2fb4f8fa4d507077e8da85ce5a1c8}{}\label{classNetwork_a3cc2fb4f8fa4d507077e8da85ce5a1c8}
+
+\begin{DoxyCompactList}\small\item\em Constructor for class. \end{DoxyCompactList}\item 
+\hyperlink{classNetwork_a7a4e19cdb4bf0c7ecf82baa643831492}{$\sim$\+Network} ()\hypertarget{classNetwork_a7a4e19cdb4bf0c7ecf82baa643831492}{}\label{classNetwork_a7a4e19cdb4bf0c7ecf82baa643831492}
+
+\begin{DoxyCompactList}\small\item\em Destrcutor for class. \end{DoxyCompactList}\item 
+int \hyperlink{classNetwork_a45a6aa8bbd1faf0c67024d561eba0d4d}{create\+Network\+Input} (cv\+::\+Mat image)
+\begin{DoxyCompactList}\small\item\em Function to convert the given image input into appropriate format for the network. \end{DoxyCompactList}\item 
+std\+::vector$<$ cv\+::\+Mat $>$ \hyperlink{classNetwork_a2db1f347f5d12693f959723039bc26f4}{apply\+Y\+O\+L\+O\+Network} ()
+\begin{DoxyCompactList}\small\item\em Applies the network for human detection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for Implementing Neural \hyperlink{classNetwork}{Network} for Human Detection. 
+
+\subsection{Member Function Documentation}
+\index{Network@{Network}!apply\+Y\+O\+L\+O\+Network@{apply\+Y\+O\+L\+O\+Network}}
+\index{apply\+Y\+O\+L\+O\+Network@{apply\+Y\+O\+L\+O\+Network}!Network@{Network}}
+\subsubsection[{\texorpdfstring{apply\+Y\+O\+L\+O\+Network()}{applyYOLONetwork()}}]{\setlength{\rightskip}{0pt plus 5cm}auto Network\+::apply\+Y\+O\+L\+O\+Network (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNetwork_a2db1f347f5d12693f959723039bc26f4}{}\label{classNetwork_a2db1f347f5d12693f959723039bc26f4}
+
+
+Applies the network for human detection. 
+
+\begin{DoxyReturn}{Returns}
+Vector of matrices(and a Image) containing detection information 
+\end{DoxyReturn}
+\index{Network@{Network}!create\+Network\+Input@{create\+Network\+Input}}
+\index{create\+Network\+Input@{create\+Network\+Input}!Network@{Network}}
+\subsubsection[{\texorpdfstring{create\+Network\+Input(cv\+::\+Mat image)}{createNetworkInput(cv::Mat image)}}]{\setlength{\rightskip}{0pt plus 5cm}auto Network\+::create\+Network\+Input (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{image}
+\end{DoxyParamCaption}
+)}\hypertarget{classNetwork_a45a6aa8bbd1faf0c67024d561eba0d4d}{}\label{classNetwork_a45a6aa8bbd1faf0c67024d561eba0d4d}
+
+
+Function to convert the given image input into appropriate format for the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Input image on which the detection is to be performed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image in appropriate format for the network 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Network_8hpp}{Network.\+hpp}\item 
+app/\hyperlink{Network_8cpp}{Network.\+cpp}\end{DoxyCompactItemize}

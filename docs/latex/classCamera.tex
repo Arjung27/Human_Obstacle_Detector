@@ -1,0 +1,146 @@
+\hypertarget{classCamera}{}\section{Camera Class Reference}
+\label{classCamera}\index{Camera@{Camera}}
+
+
+Class for storing \hyperlink{classCamera}{Camera} Information.  
+
+
+
+
+{\ttfamily \#include $<$Camera.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCamera_a01f94c3543f56ede7af49dc778f19331}{Camera} ()\hypertarget{classCamera_a01f94c3543f56ede7af49dc778f19331}{}\label{classCamera_a01f94c3543f56ede7af49dc778f19331}
+
+\begin{DoxyCompactList}\small\item\em Constructor for class. \end{DoxyCompactList}\item 
+\hyperlink{classCamera_a269c89c4173abede022f61f662d9343b}{Camera} (int id, std\+::pair$<$ int, int $>$ res)
+\begin{DoxyCompactList}\small\item\em Constructor for class with id and resolution. \end{DoxyCompactList}\item 
+\hyperlink{classCamera_a3e25c1208e4cb1fed69b7750a8ee918b}{Camera} (int id, std\+::pair$<$ int, int $>$ res, cv\+::\+Mat calib\+Mat)
+\begin{DoxyCompactList}\small\item\em Constructor for class with id, resolution and calibration matrix. \end{DoxyCompactList}\item 
+\hyperlink{classCamera_ad1897942d0ccf91052386388a497349f}{$\sim$\+Camera} ()\hypertarget{classCamera_ad1897942d0ccf91052386388a497349f}{}\label{classCamera_ad1897942d0ccf91052386388a497349f}
+
+\begin{DoxyCompactList}\small\item\em Destrcutor for class. \end{DoxyCompactList}\item 
+void \hyperlink{classCamera_ace29bb6ed733ab52f33a6896c2615ba8}{display\+Info} ()\hypertarget{classCamera_ace29bb6ed733ab52f33a6896c2615ba8}{}\label{classCamera_ace29bb6ed733ab52f33a6896c2615ba8}
+
+\begin{DoxyCompactList}\small\item\em Function to display \hyperlink{classCamera}{Camera} Information. \end{DoxyCompactList}\item 
+bool \hyperlink{classCamera_a3b2d62135d028547526ce69b0b8c1ec4}{is\+Active} ()
+\begin{DoxyCompactList}\small\item\em Function to check if \hyperlink{classCamera}{Camera} is active. \end{DoxyCompactList}\item 
+int \hyperlink{classCamera_aecf6d302d91984de1c5f66b5dc4fb126}{get\+ID} ()
+\begin{DoxyCompactList}\small\item\em Function to return \hyperlink{classCamera}{Camera} device ID. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classCamera_a40a586312d4213fbcf7aaf727c5e17f6}{get\+Calibration\+Matrix} ()
+\begin{DoxyCompactList}\small\item\em Function to return \hyperlink{classCamera}{Camera} calibration matrix. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \hyperlink{classCamera_a038aeabb86751031d194719e27f2b235}{get\+Resolution} ()
+\begin{DoxyCompactList}\small\item\em Function to get \hyperlink{classCamera}{Camera} resolution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for storing \hyperlink{classCamera}{Camera} Information. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Camera(int id, std\+::pair$<$ int, int $>$ res)}{Camera(int id, std::pair< int, int > res)}}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::\+Camera (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{std\+::pair$<$ int, int $>$}]{res}
+\end{DoxyParamCaption}
+)}\hypertarget{classCamera_a269c89c4173abede022f61f662d9343b}{}\label{classCamera_a269c89c4173abede022f61f662d9343b}
+
+
+Constructor for class with id and resolution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \hyperlink{classCamera}{Camera} device ID \\
+\hline
+{\em res} & \hyperlink{classCamera}{Camera} resolution \\
+\hline
+\end{DoxyParams}
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Camera(int id, std\+::pair$<$ int, int $>$ res, cv\+::\+Mat calib\+Mat)}{Camera(int id, std::pair< int, int > res, cv::Mat calibMat)}}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::\+Camera (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{std\+::pair$<$ int, int $>$}]{res, }
+\item[{cv\+::\+Mat}]{calib\+Mat}
+\end{DoxyParamCaption}
+)}\hypertarget{classCamera_a3e25c1208e4cb1fed69b7750a8ee918b}{}\label{classCamera_a3e25c1208e4cb1fed69b7750a8ee918b}
+
+
+Constructor for class with id, resolution and calibration matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \hyperlink{classCamera}{Camera} device ID \\
+\hline
+{\em res} & \hyperlink{classCamera}{Camera} resolution \\
+\hline
+{\em calib\+Mat} & \hyperlink{classCamera}{Camera} Calibration Matrix \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Camera@{Camera}!get\+Calibration\+Matrix@{get\+Calibration\+Matrix}}
+\index{get\+Calibration\+Matrix@{get\+Calibration\+Matrix}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+Calibration\+Matrix()}{getCalibrationMatrix()}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat Camera\+::get\+Calibration\+Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classCamera_a40a586312d4213fbcf7aaf727c5e17f6}{}\label{classCamera_a40a586312d4213fbcf7aaf727c5e17f6}
+
+
+Function to return \hyperlink{classCamera}{Camera} calibration matrix. 
+
+\begin{DoxyReturn}{Returns}
+Returns \hyperlink{classCamera}{Camera} calibration matrix 
+\end{DoxyReturn}
+\index{Camera@{Camera}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+I\+D()}{getID()}}]{\setlength{\rightskip}{0pt plus 5cm}int Camera\+::get\+ID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classCamera_aecf6d302d91984de1c5f66b5dc4fb126}{}\label{classCamera_aecf6d302d91984de1c5f66b5dc4fb126}
+
+
+Function to return \hyperlink{classCamera}{Camera} device ID. 
+
+\begin{DoxyReturn}{Returns}
+Returns device ID 
+\end{DoxyReturn}
+\index{Camera@{Camera}!get\+Resolution@{get\+Resolution}}
+\index{get\+Resolution@{get\+Resolution}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+Resolution()}{getResolution()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::pair$<$int, int$>$ Camera\+::get\+Resolution (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classCamera_a038aeabb86751031d194719e27f2b235}{}\label{classCamera_a038aeabb86751031d194719e27f2b235}
+
+
+Function to get \hyperlink{classCamera}{Camera} resolution. 
+
+\begin{DoxyReturn}{Returns}
+Returns \hyperlink{classCamera}{Camera} resolution 
+\end{DoxyReturn}
+\index{Camera@{Camera}!is\+Active@{is\+Active}}
+\index{is\+Active@{is\+Active}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{is\+Active()}{isActive()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Camera\+::is\+Active (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classCamera_a3b2d62135d028547526ce69b0b8c1ec4}{}\label{classCamera_a3b2d62135d028547526ce69b0b8c1ec4}
+
+
+Function to check if \hyperlink{classCamera}{Camera} is active. 
+
+\begin{DoxyReturn}{Returns}
+Returns true if \hyperlink{classCamera}{Camera} is active 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Camera_8hpp}{Camera.\+hpp}\end{DoxyCompactItemize}

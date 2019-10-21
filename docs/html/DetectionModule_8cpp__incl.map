@@ -1,0 +1,7 @@
+<map id="app/DetectionModule.cpp" name="app/DetectionModule.cpp">
+<area shape="rect" id="node3" href="$DetectionModule_8hpp.html" title="Declares DetectionModule child class inheriting from VisionModule. " alt="" coords="754,80,899,107"/>
+<area shape="rect" id="node10" href="$VisionModule_8hpp.html" title="Declares VisionModule base class for DetectionModule class. " alt="" coords="695,155,820,181"/>
+<area shape="rect" id="node11" href="$IOHandler_8hpp.html" title="Declares IOHandler class. " alt="" coords="844,155,951,181"/>
+<area shape="rect" id="node13" href="$Network_8hpp.html" title="Declares Network class. " alt="" coords="372,155,468,181"/>
+<area shape="rect" id="node17" href="$Transformation_8hpp.html" title="Declares Transformation class. " alt="" coords="975,155,1110,181"/>
+</map>
