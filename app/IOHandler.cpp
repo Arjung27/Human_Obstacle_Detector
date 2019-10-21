@@ -100,8 +100,11 @@ auto IOHandler::getOutputFilePath() -> std::string {
 auto IOHandler::saveOutput(std::vector< std::vector<int> > finalDetections, \
                             std::string outputDirectory) -> void {
     std::ofstream textFile;
+    /* Name appended to the outputDirectory */
     textFile.open(outputDirectory + "DetectionsFile.txt");
     int counter = 0;
+    /* Loop to check write the detections in the desired directory. Also
+    checks if the textfile path exists or not */
     if (textFile) {
         for (auto detections : finalDetections) {
             textFile << "FrameID: " << std::to_string(detections[0]) << " " \
