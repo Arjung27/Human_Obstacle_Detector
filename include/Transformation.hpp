@@ -33,7 +33,92 @@
 #ifndef INCLUDE_TRANSFORMATION_HPP_
 #define INCLUDE_TRANSFORMATION_HPP_
 
-class Transformation {
+#include <iostream>
+#include <opencv2/core/core.hpp>
+#include <opencv2/core/mat.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
+/**
+ * @brief Class for implementing Frame transformations
+ */
+class Transformation {
+ public:
+  /**
+   * @brief Constructor for class
+   *
+   * Initializes base and end frames as identity matrices
+   */
+  Transformation();
+
+  /**
+   * @brief Constructor for class with base and end frame input
+   *
+   * @param base Base Frame
+   * @param end End effector Frame
+   */
+  Transformation(cv::Mat base, cv::Mat end);
+
+  /** 
+   * @brief Destrcutor for class
+   */
+  ~Transformation();
+
+  /**
+   * @brief Function to convert vector in base frame to end frame
+   *
+   * @param vec Vector in base frame coordinates
+   *
+   * @return Vector in end frame coordinates
+   */
+  cv::Mat baseToEnd(cv::Mat vec);
+
+  /**
+   * @brief Function to convert vector in end frame to base frame
+   *
+   * @param vec Vector in end frame coordinates
+   *
+   * @return Vector in base frame coordinates
+   */
+  cv::Mat endToBase(cv::Mat vec);
+
+  /**
+   * @brief Function to convert image coordinates to Camera coordinates
+   *
+   * @param vec Vector in end frame coordinates
+   *
+   * @return Vector in base frame coordinates
+   */
+  cv::Mat imageToCamera(cv::Mat intrinsic, cv::Mat vecImage2d);
+
+  /**
+   * @brief Function to convert Camera coordinates to image coordinates
+   *
+   * @param vec Vector in end frame coordinates
+   *
+   * @return Vector in base frame coordinates
+   */
+  cv::Mat cameraToImage(cv::Mat intrinsic, cv::Mat vecCamera4d);
+
+  /**
+   * @brief Function to return base frame
+   *
+   * @return Base frame
+   */
+  cv::Mat getBaseFrame();
+
+  /**
+   * @brief Function to return end frame
+   *
+   * @return End frame
+   */
+  cv::Mat getEndFrame();
+
+ private:
+  /* Base frame transformation matrix in Global Coordinate Frame */
+  cv::Mat baseFrame;
+
+  /* End frame transformation matrix in Global Coordinate Frame */
+  cv::Mat endFrame;
 };
 #endif    // INCLUDE_TRANSFORMATION_HPP_
