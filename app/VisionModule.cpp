@@ -32,4 +32,64 @@
 
 #include <iostream>
 
-#include "VisionModule.hpp"
+#include "../include/VisionModule.hpp"
+
+VisionModule::VisionModule() {
+}
+
+VisionModule::~VisionModule() {
+}
+
+auto VisionModule::applyGaussianFilter(cv::Mat image, cv::Size kernelDim, \
+                                                float sigma) -> cv::Mat {
+    cv::Mat smoothenImage;
+    cv::GaussianBlur(image, smoothenImage, cv::Size(kernelDim), sigma, sigma);
+    return smoothenImage;
+}
+
+auto VisionModule::applyFilter(cv::Mat image, \
+                                cv::Size kernelDim) -> cv::Mat {
+    cv::Mat smoothenImage;
+    cv::blur(image, smoothenImage, cv::Size(kernelDim), cv::Point(-1, -1));
+    return smoothenImage;
+}
+
+auto VisionModule::applyMedianFilter(cv::Mat image, \
+                    int kernelDim) -> cv::Mat {
+    cv::Mat smoothenImage;
+    cv::medianBlur(image, smoothenImage, kernelDim);
+    return smoothenImage;
+}
+
+auto VisionModule::reshape(cv::Mat image, \
+                                cv::Size size) -> cv::Mat {
+    cv::Mat resizedImage;
+    cv::resize(image, resizedImage, size, 0.0, 0.0);
+    return resizedImage;
+}
+
+std::vector< std::vector<int> > VisionModule::nonMaximalSuppression(\
+        cv::Mat& frame, std::vector<cv::Rect>& predictedBoxes, \
+        std::vector<float> confidenceScores, std::vector<int> classIds, \
+        int frameID) {
+    std::vector< std::vector<int> > finalDetections;
+    std::vector<int> indexes;
+    cv::dnn::NMSBoxes(predictedBoxes, confidenceScores, \
+    this->confidenceThreshold, this->nmsThreshold, indexes);
+    for (auto index : indexes) {
+        if (classIds[index] == 0) {
+            cv::Rect rectangle_ = predictedBoxes[index];
+            int bottomRightX = rectangle_.x + rectangle_.width;
+            if (bottomRightX > 416) bottomRightX = 416;
+            int bottomRightY = rectangle_.y + rectangle_.height;
+            if (bottomRightY > 416) bottomRightY = 416;
+            cv::rectangle(frame, cv::Point(rectangle_.x, rectangle_.y), \
+            cv::Point(bottomRightX, bottomRightY), cv::Scalar(0, 170, 50), 3);
+            std::vector<int> temp{frameID, rectangle_.x, rectangle_.y, \
+                        bottomRightX, bottomRightY};
+            finalDetections.push_back(temp);
+
+        }
+    }
+    return finalDetections;
+}
