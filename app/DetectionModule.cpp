@@ -32,7 +32,6 @@
 
 #include <iostream>
 #include "DetectionModule.hpp"
-// #include "IOHandler.hpp"
 
 DetectionModule::DetectionModule() {
     /* Default input choice */
@@ -220,6 +219,7 @@ auto DetectionModule::postProcessImage(cv::Mat frame, int frameID) -> cv::Mat {
         cv::Mat cameratoImage1 = tf.cameraToImage(intrinsic, endtoBase1);
         int newx2 = cameratoImage1.at<float>(0,0);
         int newy2 = cameratoImage1.at<float>(1,0);
+        /* Storing the detections to temporary variable for next step */
         std::vector <int> transformedDetections{values[0], newx1, newy1, \
                                         newx2, newy2};
         finalDetections.push_back(transformedDetections);
