@@ -1,7 +1,6 @@
 add_executable(hodm-app main.cpp 
 						 VisionModule.cpp
 						 DetectionModule.cpp
-						 Camera.cpp
 						 Network.cpp
 						 Transformation.cpp
 						 IOHandler.cpp)

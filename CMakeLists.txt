@@ -16,13 +16,11 @@ if (COVERAGE)
     set(COVERAGE_SRCS app/main.cpp 
                       app/VisionModule.cpp
                       app/DetectionModule.cpp
-                      app/Camera.cpp
                       app/Network.cpp
                       app/Transformation.cpp
                       app/IOHandler.cpp
                       include/VisionModule.hpp
                       include/DetectionModule.hpp
-                      include/Camera.hpp
                       include/Network.hpp
                       include/Transformation.hpp
                       include/IOHandler.hpp)
