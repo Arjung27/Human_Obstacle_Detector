@@ -42,30 +42,29 @@
  * @return none
  */
 TEST(TransformationTest, TestBaseToEnd) {
-
   cv::Mat testEnd = cv::Mat::zeros(4, 4, CV_32F);
-  testEnd.at<float>(0,1) = -1.0;
-  testEnd.at<float>(1,0) = 1.0;
-  testEnd.at<float>(2,2) = 1.0;
-  testEnd.at<float>(3,3) = 1.0;
+  testEnd.at<float>(0, 1) = -1.0;
+  testEnd.at<float>(1, 0) = 1.0;
+  testEnd.at<float>(2, 2) = 1.0;
+  testEnd.at<float>(3, 3) = 1.0;
 
   /* tf object initialized with identity base frame */
   Transformation tf(cv::Mat::eye(4, 4, CV_32F), testEnd);
-  cv::Mat testVector1 = cv::Mat::ones(4,1, CV_32F);
-  cv::Mat testVector2 = cv::Mat::ones(3,1, CV_32F);
+  cv::Mat testVector1 = cv::Mat::ones(4, 1, CV_32F);
+  cv::Mat testVector2 = cv::Mat::ones(3, 1, CV_32F);
 
   cv::Mat testOutput1 = tf.baseToEnd(testVector1);
   cv::Mat testOutput2 = tf.baseToEnd(testVector2);
 
-  EXPECT_NEAR(1.0, testOutput1.at<float>(0,0), 0.0001);
-  EXPECT_NEAR(-1.0, testOutput1.at<float>(1,0), 0.0001);
-  EXPECT_NEAR(1.0, testOutput1.at<float>(2,0), 0.0001);
-  EXPECT_NEAR(1.0, testOutput1.at<float>(3,0), 0.0001);
+  EXPECT_NEAR(1.0, testOutput1.at<float>(0, 0), 0.0001);
+  EXPECT_NEAR(-1.0, testOutput1.at<float>(1, 0), 0.0001);
+  EXPECT_NEAR(1.0, testOutput1.at<float>(2, 0), 0.0001);
+  EXPECT_NEAR(1.0, testOutput1.at<float>(3, 0), 0.0001);
 
-  EXPECT_NEAR(0.0, testOutput2.at<float>(0,0), 0.0001);
-  EXPECT_NEAR(0.0, testOutput2.at<float>(1,0), 0.0001);
-  EXPECT_NEAR(0.0, testOutput2.at<float>(2,0), 0.0001);
-  EXPECT_NEAR(0.0, testOutput2.at<float>(3,0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(0, 0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(1, 0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(2, 0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(3, 0), 0.0001);
 }
 
 /**
@@ -76,30 +75,29 @@ TEST(TransformationTest, TestBaseToEnd) {
  * @return none
  */
 TEST(TransformationTest, TestEndToBase) {
-
   cv::Mat testEnd = cv::Mat::zeros(4, 4, CV_32F);
-  testEnd.at<float>(0,1) = -1.0;
-  testEnd.at<float>(1,0) = 1.0;
-  testEnd.at<float>(2,2) = 1.0;
-  testEnd.at<float>(3,3) = 1.0;
+  testEnd.at<float>(0, 1) = -1.0;
+  testEnd.at<float>(1, 0) = 1.0;
+  testEnd.at<float>(2, 2) = 1.0;
+  testEnd.at<float>(3, 3) = 1.0;
 
   /* tf object initialized with identity base frame */
   Transformation tf(cv::Mat::eye(4, 4, CV_32F), testEnd);
-  cv::Mat testVector1 = cv::Mat::ones(4,1, CV_32F);
-  cv::Mat testVector2 = cv::Mat::ones(3,1, CV_32F);
+  cv::Mat testVector1 = cv::Mat::ones(4, 1, CV_32F);
+  cv::Mat testVector2 = cv::Mat::ones(3, 1, CV_32F);
 
   cv::Mat testOutput1 = tf.endToBase(testVector1);
   cv::Mat testOutput2 = tf.endToBase(testVector2);
 
-  EXPECT_NEAR(-1.0, testOutput1.at<float>(0,0), 0.0001);
-  EXPECT_NEAR(1.0, testOutput1.at<float>(1,0), 0.0001);
-  EXPECT_NEAR(1.0, testOutput1.at<float>(2,0), 0.0001);
-  EXPECT_NEAR(1.0, testOutput1.at<float>(3,0), 0.0001);
+  EXPECT_NEAR(-1.0, testOutput1.at<float>(0, 0), 0.0001);
+  EXPECT_NEAR(1.0, testOutput1.at<float>(1, 0), 0.0001);
+  EXPECT_NEAR(1.0, testOutput1.at<float>(2, 0), 0.0001);
+  EXPECT_NEAR(1.0, testOutput1.at<float>(3, 0), 0.0001);
 
-  EXPECT_NEAR(0.0, testOutput2.at<float>(0,0), 0.0001);
-  EXPECT_NEAR(0.0, testOutput2.at<float>(1,0), 0.0001);
-  EXPECT_NEAR(0.0, testOutput2.at<float>(2,0), 0.0001);
-  EXPECT_NEAR(0.0, testOutput2.at<float>(3,0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(0, 0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(1, 0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(2, 0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(3, 0), 0.0001);
 }
 
 /**
@@ -110,13 +108,12 @@ TEST(TransformationTest, TestEndToBase) {
  * @return none
  */
 TEST(TransformationTest, TestImageToCamera) {
-
   /* tf object initialized with identity base and end frame */
   Transformation tf;
 
-  cv::Mat testVector1 = cv::Mat::ones(2,1, CV_32F);
-  testVector1.at<float>(1,0) = 2.0;
-  cv::Mat testVector2 = cv::Mat::ones(1,1, CV_32F);
+  cv::Mat testVector1 = cv::Mat::ones(2, 1, CV_32F);
+  testVector1.at<float>(1, 0) = 2.0;
+  cv::Mat testVector2 = cv::Mat::ones(1, 1, CV_32F);
 
   /* Identity intrinsic camera matrix */
   cv::Mat testIntrinsic = cv::Mat::eye(3, 3, CV_32F);
@@ -124,15 +121,15 @@ TEST(TransformationTest, TestImageToCamera) {
   cv::Mat testOutput1 = tf.imageToCamera(testIntrinsic, testVector1);
   cv::Mat testOutput2 = tf.imageToCamera(testIntrinsic, testVector2);
 
-  EXPECT_NEAR(1.0, testOutput1.at<float>(0,0), 0.0001);
-  EXPECT_NEAR(2.0, testOutput1.at<float>(1,0), 0.0001);
-  EXPECT_NEAR(1.0, testOutput1.at<float>(2,0), 0.0001);
-  EXPECT_NEAR(1.0, testOutput1.at<float>(3,0), 0.0001);
+  EXPECT_NEAR(1.0, testOutput1.at<float>(0, 0), 0.0001);
+  EXPECT_NEAR(2.0, testOutput1.at<float>(1, 0), 0.0001);
+  EXPECT_NEAR(1.0, testOutput1.at<float>(2, 0), 0.0001);
+  EXPECT_NEAR(1.0, testOutput1.at<float>(3, 0), 0.0001);
 
-  EXPECT_NEAR(0.0, testOutput2.at<float>(0,0), 0.0001);
-  EXPECT_NEAR(0.0, testOutput2.at<float>(1,0), 0.0001);
-  EXPECT_NEAR(0.0, testOutput2.at<float>(2,0), 0.0001);
-  EXPECT_NEAR(0.0, testOutput2.at<float>(3,0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(0, 0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(1, 0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(2, 0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(3, 0), 0.0001);
 }
 
 /**
@@ -143,13 +140,12 @@ TEST(TransformationTest, TestImageToCamera) {
  * @return none
  */
 TEST(TransformationTest, TestCameraToImage) {
-
   /* tf object initialized with identity base and end frame */
   Transformation tf;
 
-  cv::Mat testVector1 = cv::Mat::ones(4,1, CV_32F);
-  testVector1.at<float>(1,0) = 2.0;
-  cv::Mat testVector2 = cv::Mat::ones(2,1, CV_32F);
+  cv::Mat testVector1 = cv::Mat::ones(4, 1, CV_32F);
+  testVector1.at<float>(1, 0) = 2.0;
+  cv::Mat testVector2 = cv::Mat::ones(2, 1, CV_32F);
 
   /* Identity intrinsic camera matrix */
   cv::Mat testIntrinsic = cv::Mat::eye(3, 3, CV_32F);
@@ -157,9 +153,30 @@ TEST(TransformationTest, TestCameraToImage) {
   cv::Mat testOutput1 = tf.cameraToImage(testIntrinsic, testVector1);
   cv::Mat testOutput2 = tf.cameraToImage(testIntrinsic, testVector2);
 
-  EXPECT_NEAR(1.0, testOutput1.at<float>(0,0), 0.0001);
-  EXPECT_NEAR(2.0, testOutput1.at<float>(1,0), 0.0001);
+  EXPECT_NEAR(1.0, testOutput1.at<float>(0, 0), 0.0001);
+  EXPECT_NEAR(2.0, testOutput1.at<float>(1, 0), 0.0001);
 
-  EXPECT_NEAR(0.0, testOutput2.at<float>(0,0), 0.0001);
-  EXPECT_NEAR(0.0, testOutput2.at<float>(1,0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(0, 0), 0.0001);
+  EXPECT_NEAR(0.0, testOutput2.at<float>(1, 0), 0.0001);
+}
+
+/**
+ * @brief Test to check get functions
+ *
+ * @param none
+ *
+ * @return none
+ */
+TEST(TransformationTest, TestGetFunctions) {
+  /* tf object initialized with identity base and end frame */
+  Transformation tf;
+
+  cv::Mat testEnd = tf.getEndFrame();
+  cv::Mat testBase = tf.getBaseFrame();
+
+  ASSERT_EQ(4, testEnd.cols);
+  ASSERT_EQ(4, testEnd.rows);
+
+  ASSERT_EQ(4, testBase.cols);
+  ASSERT_EQ(4, testBase.rows);
 }
