@@ -67,8 +67,8 @@ class VisionModule {
    *
    * @return Image after applying filter
    */
-  virtual cv::Mat applyGaussianFilter(cv::Mat image,
-      int kernelDim, float sigma);
+  cv::Mat applyGaussianFilter(cv::Mat image, \
+      cv::Size kernelDim, float sigma);
 
   /**
    * @brief Applies Mean Filter to given image.
@@ -78,7 +78,7 @@ class VisionModule {
    *
    * @return Image after applying filter
    */
-  virtual cv::Mat applyMeanFilter(cv::Mat image, int kernelDim);
+  cv::Mat applyFilter(cv::Mat image, cv::Size kernelDim);
 
   /**
    * @brief Applies Median Filter to given image.
@@ -88,7 +88,7 @@ class VisionModule {
    *
    * @return Image after applying filter
    */
-  virtual cv::Mat applyMedianFilter(cv::Mat image, int kernelDim);
+  cv::Mat applyMedianFilter(cv::Mat image, int kernelDim);
 
   /**
    * @brief Reshapes given image to given dimension
@@ -99,7 +99,7 @@ class VisionModule {
    *
    * @return Image after reshaping it
    */
-  virtual cv::Mat reshape(cv::Mat image, std::pair<int, int> dim);
+  cv::Mat reshape(cv::Mat image, cv::Size dim);
 
   /**
    * @brief Applies Non Maximal Suppression Algorithm
@@ -117,7 +117,13 @@ class VisionModule {
    *
    * @return Modified Vector of bounding box information
    */
-  virtual std::vector<std::vector<float>> nonMaximalSuppression(
-      cv::Mat image, std::vector<std::vector<float>>);
+  std::vector< std::vector<int> > nonMaximalSuppression(cv::Mat &frame, \
+  std::vector<cv::Rect>& predictedBoxes, std::vector<float> confidenceScores, \
+        std::vector<int> classIds, int frameID);
+
+ private:
+  float confidenceThreshold = 0.9;
+  float nmsThreshold = 0.9;
 };
+
 #endif    // INCLUDE_VISIONMODULE_HPP_
