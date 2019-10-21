@@ -85,18 +85,20 @@ class Transformation {
   /**
    * @brief Function to convert image coordinates to Camera coordinates
    *
-   * @param vec Vector in end frame coordinates
+   * @param vecImage2d Vector in image coordinates
+   * @param intrinsic Intrinsic matric of the camera
    *
-   * @return Vector in base frame coordinates
+   * @return Vector in camera frame coordinates
    */
   cv::Mat imageToCamera(cv::Mat intrinsic, cv::Mat vecImage2d);
 
   /**
    * @brief Function to convert Camera coordinates to image coordinates
    *
-   * @param vec Vector in end frame coordinates
+   * @param vecCamera4d Vector of camera coordinates
+   * @param intrinsic Intrinsic matric of the camera
    *
-   * @return Vector in base frame coordinates
+   * @return Vector in image coordinates
    */
   cv::Mat cameraToImage(cv::Mat intrinsic, cv::Mat vecCamera4d);
 
