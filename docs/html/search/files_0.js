@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['camera_2ecpp',['Camera.cpp',['../Camera_8cpp.html',1,'']]],
-  ['camera_2ehpp',['Camera.hpp',['../Camera_8hpp.html',1,'']]],
-  ['cameratest_2ecpp',['CameraTest.cpp',['../CameraTest_8cpp.html',1,'']]]
+  ['detectionmodule_2ecpp',['DetectionModule.cpp',['../DetectionModule_8cpp.html',1,'']]],
+  ['detectionmodule_2ehpp',['DetectionModule.hpp',['../DetectionModule_8hpp.html',1,'']]],
+  ['detectionmoduletest_2ecpp',['DetectionModuleTest.cpp',['../DetectionModuleTest_8cpp.html',1,'']]]
 ];

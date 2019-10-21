@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classTransformation.html" title="Class for implementing Frame transformations. " alt="" coords="5,5,115,32"/>
+<area shape="rect" id="node1" href="$classVisionModule.html" title="Class for Vision based functionality. " alt="" coords="5,5,105,32"/>
+<area shape="rect" id="node2" href="$classDetectionModule.html" title="Class for Implementing Human Obstacle Detection Algorithms. " alt="" coords="153,5,273,32"/>
 </map>

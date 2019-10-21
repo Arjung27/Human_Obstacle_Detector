@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['camera',['Camera',['../classCamera.html',1,'']]]
+  ['detectionmodule',['DetectionModule',['../classDetectionModule.html',1,'']]]
 ];
