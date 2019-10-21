@@ -1,6 +1,6 @@
 # Human Obstacle Detection Module
-[![Build Status](https://travis-ci.org/rohansingh42/HODM.svg?branch=master)](https://travis-ci.org/rohansingh42/HODM)
-[![Coverage Status](https://coveralls.io/repos/github/rohansingh42/HODM/badge.svg?branch=master)](https://coveralls.io/github/rohansingh42/HODM?branch=master)
+[![Build Status](https://travis-ci.org/Arjung27/HODM.svg?branch=master)](https://travis-ci.org/Arjung27/HODM)
+[![Coverage Status](https://coveralls.io/repos/github/Arjung27/HODM/badge.svg?branch=master)](https://coveralls.io/github/Arjung27/HODM?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ---
 
