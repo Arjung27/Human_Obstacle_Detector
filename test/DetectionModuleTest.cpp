@@ -31,3 +31,82 @@
  */
 
 #include <gtest/gtest.h>
+
+#include <DetectionModule.hpp>
+
+/**
+ * @brief Test to check get frame function, that executes main
+ *        detection functionality
+ *
+ * @param none
+ *
+ * @return none
+ */
+TEST(DetectionModuleTest, TestGetFrame) {
+
+  DetectionModule dm;
+  std::string testFilePath = "../test/testData/testImage.jpg";
+  std::string testOutputDirectory = "../test/testResults/";
+  int testCameraID = 0;
+  
+  ASSERT_EQ(1, dm.getFrame(testFilePath, testCameraID, testOutputDirectory));
+
+  cv::Mat testImage = cv::imread("../test/testData/testImage.jpg");
+  cv::Mat testOutput = cv::imread("../test/testResults/testImageDetection.jpg");
+
+  ASSERT_EQ(416, testOutput.cols);
+  ASSERT_EQ(416, testOutput.rows);
+}
+
+/**
+ * @brief Test to check pre processing steps
+ *
+ * @param none
+ *
+ * @return none
+ */
+TEST(DetectionModuleTest, TestPreProcessImage) {
+
+  DetectionModule dm;
+
+  cv::Mat testImage = cv::imread("../test/testData/testImage.jpg");
+  cv::Mat testOutput = dm.preProcessImage(testImage);
+
+  ASSERT_EQ(416, testOutput.cols);
+  ASSERT_EQ(416, testOutput.rows);
+}
+
+/**
+ * @brief Test to check network execution
+ *
+ * @param none
+ *
+ * @return none
+ */
+TEST(DetectionModuleTest, TestDetectObjects) {
+
+  DetectionModule dm;
+
+  cv::Mat testImage = cv::imread("../test/testData/testImage.jpg");
+
+  ASSERT_EQ(1, dm.detectObjects(testImage));
+}
+
+/**
+ * @brief Test to check post processing steps
+ *
+ * @param none
+ *
+ * @return none
+ */
+TEST(DetectionModuleTest, TestPostProcessImage) {
+
+  DetectionModule dm;
+  int testFrameID = 0;
+
+  cv::Mat testImage = cv::imread("../test/testData/testImage.jpg");
+  cv::Mat testOutput = dm.postProcessImage(testImage, testFrameID);
+
+  ASSERT_EQ(testImage.cols, testOutput.cols);
+  ASSERT_EQ(testImage.rows, testOutput.rows);
+}
