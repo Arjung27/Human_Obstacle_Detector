@@ -46,12 +46,13 @@ TEST(DetectionModuleTest, TestGetFrame) {
   DetectionModule dm;
   std::string testFilePath1 = "../test/testData/testImage.jpg";
   std::string testFilePath2 = "../test/testData/notTestImage.jpg";
+  std::string testFilePath3 = "../test/testData/testVideo.avi";
   std::string testOutputDirectory = "../test/testResults/";
   int testCameraID = -1;
 
   ASSERT_EQ(1, dm.getFrame(testFilePath1, testCameraID, \
                             testOutputDirectory, 1));
-  ASSERT_EQ(1, dm.getFrame(testFilePath1, testCameraID, \
+  ASSERT_EQ(1, dm.getFrame(testFilePath3, testCameraID, \
                             testOutputDirectory, 2));
 
   ASSERT_EQ(0, dm.getFrame(testFilePath2, testCameraID, \
