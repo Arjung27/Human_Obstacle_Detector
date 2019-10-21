@@ -58,7 +58,7 @@ TEST(IOHandler, TestGetInputChoice) {
 
 TEST(IOHandler, TestGetInputFilePath) {
 
-  std::string testString1 = "/home/arjun/Courseworks/Projects/ENPM808X/HODM/test/testData/testImage.jpg";
+  std::string testString1 = "../test/testData/testImage.jpg";
   std::string testString2 = "../test/testData/notTestImage.jpg";
   testString2 = testString2 + " " + testString1;
   std::istringstream mockInputBuffer1(testString1);
