@@ -119,7 +119,7 @@ sudo apt install doxygen
 ```
 To generate the Doxygen documentation 
 ```
-doxygen ./Doxygen
+doxygen Doxyfile
 ```
 
 ## License
