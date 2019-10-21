@@ -126,9 +126,9 @@ class VisionModule {
         std::vector<int> classIds, int frameID);
 
  private:
- /* Confidence Threshold for the detections */
+  /* Confidence Threshold for the detections */
   float confidenceThreshold = 0.9;
- /* NMS Threshold for the detections */
+  /* NMS Threshold for the detections */
   float nmsThreshold = 0.9;
 };
 

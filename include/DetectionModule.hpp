@@ -104,10 +104,11 @@ class DetectionModule : public VisionModule {
    * Removes noise from the image and resizes it to appropriate shape
    *
    * @param image Current frame (image) on which detection is to be done
+   * @param filterType Type of filter to be used for removing noise
    *
    * @return Image after Processing
    */
-  cv::Mat preProcessImage(cv::Mat image);
+  cv::Mat preProcessImage(cv::Mat image, char filterType);
 
   /**
    * @brief Processes the current frame (image) and the obtained detection
@@ -142,14 +143,14 @@ class DetectionModule : public VisionModule {
    *                 the network.
    * @param cameraID contains the cameraID if user choses camera to be the mode
    *                 of input.
-   * @param outputDirectory path where the results need to be stored 
-   *  
-   *
+   * @param outputDirectory path where the results need to be stored  
+   * @param choice Choice of input format(image/video/camera) given by user
+   * 
    * @return 0 if the data is invalid or the cameraID is invalid and return 1
    *        if the module runs successfully.
    */
   int getFrame(std::string filePath, int cameraID, \
-                              std::string outputDirectory);
+                        std::string outputDirectory, int choice);
 };
 
 #endif    // INCLUDE_DETECTIONMODULE_HPP_

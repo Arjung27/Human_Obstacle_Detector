@@ -118,20 +118,20 @@ auto Transformation :: endToBase(cv::Mat vec) -> cv::Mat {
 auto Transformation :: imageToCamera(cv::Mat intrinsic, \
                           cv::Mat vecImage2d) -> cv::Mat {
   if (vecImage2d.cols == 1 && vecImage2d.rows == 2) {
-  	/* vector in Image coordinates */
-  	cv::Mat vecImage3d = cv::Mat::ones(3, 1, CV_32F);
-  	vecImage2d.copyTo(vecImage3d(cv::Rect(0,0,1,2)));
+    /* vector in Image coordinates */
+    cv::Mat vecImage3d = cv::Mat::ones(3, 1, CV_32F);
+    vecImage2d.copyTo(vecImage3d(cv::Rect(0, 0, 1, 2)));
 
-  	/* Inverse of Intrinsic Camera marameter matrix */
-  	cv::Mat invIntrinsic = intrinsic.inv();
+    /* Inverse of Intrinsic Camera marameter matrix */
+    cv::Mat invIntrinsic = intrinsic.inv();
 
-  	/* 3d Normalized vector in Camera coordinates */
-  	cv::Mat vecCamera3d = invIntrinsic * vecImage3d;
-  	vecCamera3d = vecCamera3d / vecCamera3d.at<float>(2,0);
+    /* 3d Normalized vector in Camera coordinates */
+    cv::Mat vecCamera3d = invIntrinsic * vecImage3d;
+    vecCamera3d = vecCamera3d / vecCamera3d.at<float>(2, 0);
 
-  	/* 4d vector of point in camera frame */
-  	cv::Mat vecCamera4d = cv::Mat::ones(4, 1, CV_32F);
-  	vecCamera3d.copyTo(vecCamera4d(cv::Rect(0,0,1,3)));
+    /* 4d vector of point in camera frame */
+    cv::Mat vecCamera4d = cv::Mat::ones(4, 1, CV_32F);
+    vecCamera3d.copyTo(vecCamera4d(cv::Rect(0, 0, 1, 3)));
 
     return vecCamera4d;
   } else {
@@ -149,15 +149,15 @@ auto Transformation :: imageToCamera(cv::Mat intrinsic, \
 auto Transformation :: cameraToImage(cv::Mat intrinsic, \
                                 cv::Mat vecCamera4d) -> cv::Mat {
   if (vecCamera4d.cols == 1 && vecCamera4d.rows == 4) {
-  	/* 3d vector in Camera coordinates */
-  	cv::Mat vecCamera3d = vecCamera4d(cv::Rect(0,0,1,3));
+    /* 3d vector in Camera coordinates */
+    cv::Mat vecCamera3d = vecCamera4d(cv::Rect(0, 0, 1, 3));
 
-  	/* Normalized vector in Image coordinates */
-  	cv::Mat vecImage3d = intrinsic * vecCamera3d;
-  	vecImage3d = vecImage3d / vecImage3d.at<float>(2,0);
+    /* Normalized vector in Image coordinates */
+    cv::Mat vecImage3d = intrinsic * vecCamera3d;
+    vecImage3d = vecImage3d / vecImage3d.at<float>(2, 0);
 
-  	/* 2d vector of point in Image coordinates */
-  	cv::Mat vecImage2d = vecImage3d(cv::Rect(0,0,1,2));
+    /* 2d vector of point in Image coordinates */
+    cv::Mat vecImage2d = vecImage3d(cv::Rect(0, 0, 1, 2));
 
     return vecImage2d;
   } else {

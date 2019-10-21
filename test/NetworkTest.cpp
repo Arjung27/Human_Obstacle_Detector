@@ -42,7 +42,6 @@
  * @return none
  */
 TEST(NetworkTest, TestCreateNetworkInput) {
-
   Network network;
 
   cv::Mat testImage1 = cv::imread("../test/testData/testImage.jpg");
@@ -62,12 +61,13 @@ TEST(NetworkTest, TestCreateNetworkInput) {
  * @return none
  */
 TEST(NetworkTest, TestApplyYOLONetwork) {
-
   Network network;
 
   cv::Mat testImage = cv::imread("../test/testData/testImage.jpg");
-  int testFlag = network.createNetworkInput(testImage);
+
+  ASSERT_EQ(1, network.createNetworkInput(testImage));
+
   std::vector<cv::Mat> testDetections = network.applyYOLONetwork();
 
-  ASSERT_GE(testDetections.size(), 1);
+  ASSERT_GE(testDetections.size(), static_cast<unsigned>(1));
 }
