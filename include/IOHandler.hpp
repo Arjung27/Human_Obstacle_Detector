@@ -46,11 +46,11 @@
 class IOHandler {
  private:
   /* Input choice of the user */
-  int inputChoice;
+  int inputChoice = 1;
   /* Input file's path */
   std::string filePath;
   /* CameraID if camera is the source of input */
-  int cameraID;
+  int cameraID = 0;
   /* Output directory path to store the results */
   std::string outputDirectory;
   /* Image that is being processed */
