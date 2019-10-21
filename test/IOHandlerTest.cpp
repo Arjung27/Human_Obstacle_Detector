@@ -63,7 +63,7 @@ TEST(IOHandler, TestGetInputFilePath) {
   std::ostringstream mockOutputBuffer;
   IOHandler io1(mockInputBuffer1, mockOutputBuffer);
 
-  std::istringstream mockInputBuffer2(testString1);
+  std::istringstream mockInputBuffer2(testString2);
   IOHandler io2(mockInputBuffer2, mockOutputBuffer);
 
   ASSERT_EQ(testString1, io1.getInputFilePath());
