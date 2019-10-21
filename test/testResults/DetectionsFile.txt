@@ -1,1 +1,2 @@
 FrameID: 0 ObjectID: 0 Box_Coordinates: 38 38 387 387
+FrameID: 0 ObjectID: 1 Box_Coordinates: 37 37 387 387
