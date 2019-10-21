@@ -9,6 +9,7 @@
 This repository contains the implementation of the Human Obstacle Detection module. The human obstacle detector module can take the image, video, camera feed as input and output the localization of the detected humans in the robot’s reference frame. The output of the module contains the top left corner, the bottom right corner and the frame ID of the object (that contains the human). The module uses a pretrained network of YOLOv3 to make the predictions. The model is pretrained on COCO dataset, for making it more robust for detection. This module can be further integrated with a task-specific control module (such as path planning module) which utilizes the detection information.
 
 The gif below shows the output of the network. It is on one of the test runs on the surveillence video (in _test/testResults/DemoVideos.zip_) and the predictions clearly indicate that such modules with more fine tuning can be perfectly deployed for tasks such as human tracking, counting humans, etc. 
+
 ![Surveillance GIF](test/testResults/surveillanceVideo.gif)
 
 In this project we have strictly emphasized on the preprocessing and the post processing of the data. During our several test runs we found that removing noise significantly improves the accuracy of the output thus makes our system more reliable.
@@ -91,6 +92,7 @@ For a demo of the module functionality on an image, provide the input as indicat
 The demo will run and show result image with detection boxes, and save a text file with the name "DetectionsFile.txt" in the _test/testResults/_ subdirectory. You may also provide your own images(just follow instructions shown on terminal and enter absolute pathe whenever asked).
 
 The output image will look like 
+
 ![Demo Output](test/testResults/testImageDetection.jpg)
 
 For a demo with live detections from your laptop camera, choose option 3 when initially asked. Then enter a device ID(>0) and choose an output directory. Press the "Esc" to exit.
