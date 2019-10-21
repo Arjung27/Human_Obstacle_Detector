@@ -106,14 +106,18 @@ class VisionModule {
    *
    * Given a set of bounding boxes of detected objects in an
    * image, the algorithm removes overlapping boxes that may be
-   * enclosing the same object.
+   * enclosing the same object. The same function also draws the bounding
+   * boxes on the passed image.
    *
    * @param image Image on which the objects have been detected
-   * @param boxes Vector of vectors of float, contains information
-   *              of all the bounding boxes detected. In order, the
-   *              information comprises of, frame no., object no.,
-   *              center, upper left and bottom right points of the box,
-   *              confidence level of enclosing the object.
+   * @param predictedBoxes Vector owith data type cv::rect, contains 
+   *              information of all the bounding boxes detected. In order, the
+   *              information comprises of upper left and bottom right points
+   *              corners of the box.
+   * @param confidenceScores Vector contains the confidence scores of all the 
+   *                        boxes above threshold.
+   * @param classIds vector that contain the classIds of all the detections.
+   * @param frameID denotes the frame number associated with the image.
    *
    * @return Modified Vector of bounding box information
    */
@@ -122,7 +126,9 @@ class VisionModule {
         std::vector<int> classIds, int frameID);
 
  private:
+ /* Confidence Threshold for the detections */
   float confidenceThreshold = 0.9;
+ /* NMS Threshold for the detections */
   float nmsThreshold = 0.9;
 };
 
