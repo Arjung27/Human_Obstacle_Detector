@@ -28,8 +28,8 @@ matrix:
             - libavformat-dev
             - libswscale-dev
             - python-dev
-            - pythonpip
-            - pythonnumpy
+            - python-pip
+            - python-numpy
             - libtbb2
             - libtbb-dev
             - libjpeg-dev
@@ -101,7 +101,7 @@ before_install:
             -D INSTALL_PYTHON_EXAMPLES=ON \
             -D WITH_TBB=ON \
             -D WITH_V4L=ON \
-            -D OPENCV_PYTHON3_INSTALL_PATH=$cwd/OpenCV-$cvVersion-py3/lib/python3.5/site-packages \
+            -D OPENCV_PYTHON_INSTALL_PATH=$cwd/OpenCV-$cvVersion-py3/lib/python2.7/site-packages \
         -D WITH_QT=ON \
         -D WITH_OPENGL=ON \
         -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
