@@ -31,3 +31,104 @@
  */
 
 #include <gtest/gtest.h>
+#include "../include/VisionModule.hpp"
+
+/**
+ * @brief Test to check gaussian filter function
+ *
+ * @param none
+ *
+ * @return none
+ */
+TEST(VisionModuleTest, TestApplyGaussianFilter) {
+  VisionModule vm;
+  cv::Mat testImage, testOutput;
+  cv::Size testKernelSize(5, 5);
+  float testSigma = 0.1;
+  testImage = cv::imread("../test/testData/testImage.jpg");
+  testOutput = vm.applyGaussianFilter(testImage, testKernelSize, testSigma);
+
+  ASSERT_EQ(testImage.cols, testOutput.cols);
+  ASSERT_EQ(testImage.rows, testOutput.rows);
+}
+
+/**
+ * @brief Test to check mean filter function
+ *
+ * @param none
+ *
+ * @return none
+ */
+TEST(VisionModuleTest, TestApplyMeanFilter) {
+  VisionModule vm;
+  cv::Mat testImage, testOutput;
+  cv::Size testKernelSize(5, 5);
+  testImage = cv::imread("../test/testData/testImage.jpg");
+  testOutput = vm.applyFilter(testImage, testKernelSize);
+
+  ASSERT_EQ(testImage.cols, testOutput.cols);
+  ASSERT_EQ(testImage.rows, testOutput.rows);
+}
+
+/**
+ * @brief Test to check median filter function
+ *
+ * @param none
+ *
+ * @return none
+ */
+TEST(VisionModuleTest, TestApplyMedianFilter) {
+  VisionModule vm;
+  cv::Mat testImage, testOutput;
+  int testKernelSize = 5;
+  testImage = cv::imread("../test/testData/testImage.jpg");
+  testOutput = vm.applyMedianFilter(testImage, testKernelSize);
+
+  ASSERT_EQ(testImage.cols, testOutput.cols);
+  ASSERT_EQ(testImage.rows, testOutput.rows);
+}
+
+/**
+ * @brief Test to check image reshape function
+ *
+ * @param none
+ *
+ * @return none
+ */
+TEST(VisionModuleTest, TestReshape) {
+  VisionModule vm;
+  cv::Mat testImage, testOutput;
+  cv::Size dim(500, 500);
+  testImage = cv::imread("../test/testData/testImage.jpg");
+  testOutput = vm.reshape(testImage, dim);
+
+  ASSERT_EQ(500, testOutput.cols);
+  ASSERT_EQ(500, testOutput.rows);
+}
+
+/**
+ * @brief Test to check non-maximal suppression algorithm
+ *
+ * @param none
+ *
+ * @return none
+ */
+TEST(VisionModuleTest, TestNonMaximalSuppression) {
+  VisionModule vm;
+  cv::Mat testImage;
+  std::vector<cv::Rect> testPredictedBoxes;
+  std::vector< std::vector<int> > testFinalBoxes;
+  std::vector<float> testConfidenceScores;
+  std::vector<int> classIds{0, 0};
+  int frameID = 0;
+  testPredictedBoxes.push_back(cv::Rect(200, 200, 50, 50));
+  testPredictedBoxes.push_back(cv::Rect(200, 200, 260, 240));
+  testConfidenceScores.push_back(0.5);
+  testConfidenceScores.push_back(0.95);
+  testImage = cv::imread("../test/testData/testImage.jpg");
+  testFinalBoxes = vm.nonMaximalSuppression(testImage, testPredictedBoxes, \
+                    testConfidenceScores, classIds, frameID);
+
+  ASSERT_EQ(1, static_cast<signed>(testFinalBoxes.size()));
+  ASSERT_EQ(200, testFinalBoxes[0][1]);
+}
